@@ -1,0 +1,447 @@
+/* ---------------------------------------------------------------------------
+ * Shared layout for the BRANDED template family (mill-paper / spec-sheet /
+ * grove). One markup structure per slide type; this file gives the common
+ * geometry, the theme stylesheets (themes/<name>.css) restyle it and switch
+ * the per-theme chrome blocks on.
+ *
+ * Chrome blocks: markup that exists for exactly one theme carries
+ * .rmpb-only-mill / .rmpb-only-spec / .rmpb-only-grove — hidden here,
+ * re-displayed by the owning theme's stylesheet. Everything else is shared
+ * and consumes var(--rmp-*) tokens only.
+ * ------------------------------------------------------------------------- */
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+.rmpb-slide {
+  width: var(--rmp-canvas-width, var(--rmp-canvas));
+  height: var(--rmp-canvas-height, var(--rmp-canvas));
+  position: relative;
+  overflow: hidden;
+  background: var(--rmp-bg);
+  color: var(--rmp-ink);
+  font-family: var(--rmp-font-body);
+  display: flex;
+  flex-direction: column;
+  padding: var(--rmp-frame-inset, 0px);
+  /* Extra vertical padding that keeps cover content inside the center square
+     crop (the profile-grid tile) on portrait canvases. 0 on square. Capped so
+     story (9:16) breathes instead of drowning in padding. */
+  --rmpb-vert-extra: min(
+    calc((var(--rmp-canvas-height, var(--rmp-canvas)) - var(--rmp-canvas-width, var(--rmp-canvas))) / 2),
+    160px
+  );
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Cover/CTA/single-highlight sit on the post's cover-treatment field color. */
+.rmpb-slide--field {
+  background: var(--rmp-cover-field);
+  color: var(--rmp-cover-ink);
+}
+
+/* Grid-safe: content column stays inside the center 1:1 crop. */
+.rmpb-slide--gridsafe {
+  padding-top: calc(var(--rmp-frame-inset, 0px) + var(--rmpb-vert-extra));
+  padding-bottom: calc(var(--rmp-frame-inset, 0px) + var(--rmpb-vert-extra));
+}
+
+.rmpb-frame {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: var(--rmp-padding);
+  position: relative;
+}
+
+/* Theme-exclusive chrome blocks: each renders ONLY under its own theme.
+ * body:not([data-rmp-theme=...]) outranks any later display rule on the
+ * block's other classes (.rmpb-row, .rmpb-cellrow, ...), so the hide can't
+ * be accidentally undone by shared layout styles. */
+body:not([data-rmp-theme='mill-paper']) .rmpb-only-mill,
+body:not([data-rmp-theme='spec-sheet']) .rmpb-only-spec,
+body:not([data-rmp-theme='grove']) .rmpb-only-grove { display: none; }
+
+/* ---- Shared rows & cells -------------------------------------------------- */
+.rmpb-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+.rmpb-row--baseline { align-items: baseline; }
+
+/* Spec Sheet's bordered cell row (header/footer strips). Only visible there. */
+.rmpb-cellrow { display: flex; align-items: stretch; }
+.rmpb-cell { display: flex; align-items: center; }
+.rmpb-cell--grow { flex: 1; }
+
+/* ---- Type voices ----------------------------------------------------------- */
+.rmpb-display {
+  font-family: var(--rmp-font-display);
+  font-size: var(--rmp-type-display-size);
+  font-weight: var(--rmp-type-display-weight);
+  letter-spacing: var(--rmp-type-display-tracking);
+  line-height: var(--rmp-type-display-line-height);
+  color: var(--rmp-ink);
+  margin: 0;
+}
+.rmpb-headline {
+  font-family: var(--rmp-font-display);
+  font-size: var(--rmp-type-headline-size);
+  font-weight: var(--rmp-type-display-weight);
+  letter-spacing: var(--rmp-type-display-tracking);
+  line-height: var(--rmp-type-display-line-height);
+  color: var(--rmp-ink);
+  margin: 0;
+}
+.rmpb-body {
+  font-family: var(--rmp-font-body);
+  font-size: var(--rmp-type-body-size);
+  font-weight: var(--rmp-type-body-weight);
+  line-height: var(--rmp-type-line-height);
+  color: var(--rmp-body-text);
+  margin: 0;
+}
+.rmpb-label {
+  font-family: var(--rmp-font-label);
+  font-size: var(--rmp-type-label-size);
+  font-weight: var(--rmp-type-label-weight);
+  letter-spacing: var(--rmp-type-label-tracking);
+  text-transform: uppercase;
+  color: var(--rmp-ink);
+}
+.rmpb-label--accent { color: var(--rmp-why-accent); }
+.rmpb-label--muted { color: var(--rmp-muted); letter-spacing: 0.14em; }
+.rmpb-meta {
+  font-family: var(--rmp-font-label);
+  font-size: var(--rmp-type-footer-size);
+  letter-spacing: 0.14em;
+  color: var(--rmp-muted);
+}
+
+/* The one sanctioned emphasis: the italic accent word inside a display line. */
+.rmpb-accent { font-style: italic; color: var(--rmp-terracotta); }
+.rmpb-slide--field .rmpb-accent { color: var(--rmp-cover-accent); }
+
+/* ---- Header / footer bars (mill & grove default; spec restyles to cells) --- */
+.rmpb-head { flex-shrink: 0; }
+.rmpb-foot { flex-shrink: 0; }
+.rmpb-main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Brand lockup: emblem <img> + typeset wordmark (never a raster logo). */
+.rmpb-lockup { display: flex; align-items: center; gap: 20px; }
+.rmpb-lockup__emblem { display: block; }
+.rmpb-lockup__word {
+  font-family: var(--rmp-font-label);
+  font-size: var(--rmp-type-cover-lockup-size);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--rmp-ink);
+}
+.rmpb-slide--field .rmpb-lockup__word { color: var(--rmp-cover-ink); }
+
+/* ---- Cover ---------------------------------------------------------------- */
+.rmpb-cover-badge {
+  font-family: var(--rmp-font-label);
+  font-size: var(--rmp-type-cover-badge-size);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rmp-cover-badge-color);
+  border: 2px solid var(--rmp-cover-badge-border);
+  background: var(--rmp-cover-badge-bg);
+  padding: 13px 26px;
+  border-radius: var(--rmp-radius-badge);
+  white-space: nowrap;
+}
+.rmpb-cover-main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 36px;
+  position: relative; /* paints above the watermark */
+  max-width: var(--rmp-cover-text-max-width);
+}
+.rmpb-cover-headline {
+  font-family: var(--rmp-font-display);
+  font-size: var(--rmp-type-cover-display-size);
+  font-weight: var(--rmp-type-cover-display-weight);
+  letter-spacing: var(--rmp-type-display-tracking);
+  line-height: 1.04;
+  color: var(--rmp-cover-ink);
+  margin: 0;
+}
+.rmpb-cover-sub {
+  font-family: var(--rmp-font-body);
+  font-size: var(--rmp-type-cover-sub-size);
+  line-height: 1.55;
+  color: var(--rmp-cover-ink-soft);
+  max-width: 780px;
+  margin: 0;
+}
+.rmpb-cover-cue {
+  font-family: var(--rmp-font-label);
+  font-size: var(--rmp-type-footer-size);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rmp-cover-ink-faint);
+}
+.rmpb-cover-foot { position: relative; }
+
+/* Progress indicator (filled by branded-chrome.js per --rmp-progress-style):
+   serif page count / mono bars / seed dots. */
+.rmpb-progress { display: flex; align-items: center; gap: 13px; }
+.rmpb-progress__count {
+  font-family: var(--rmp-font-display);
+  font-size: var(--rmp-type-cover-foot-size);
+  color: var(--rmp-cover-ink-soft);
+}
+.rmpb-slide:not(.rmpb-slide--field) .rmpb-progress__count { color: var(--rmp-ink); }
+.rmpb-progress__bar { height: 13px; background: var(--rmp-cover-ink); opacity: 0.25; }
+.rmpb-progress__bar--active { opacity: 1; width: 56px; }
+.rmpb-progress__dot { width: 20px; height: 20px; border-radius: 999px; background: var(--rmp-cover-ink); opacity: 0.3; }
+.rmpb-progress__dot--active { width: 51px; border-radius: 999px; background: var(--rmp-rust); opacity: 1; }
+
+/* ---- Why-it-matters strip (question, stat-callout, decision-map) ----------- */
+.rmpb-why { flex-shrink: 0; }
+.rmpb-why__label {
+  font-family: var(--rmp-font-label);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rmp-why-accent);
+  white-space: nowrap;
+}
+.rmpb-why__body {
+  font-size: var(--rmp-type-why-size);
+  line-height: 1.5;
+  color: var(--rmp-ink);
+}
+
+/* ---- Cards / list rows ------------------------------------------------------ */
+.rmpb-listrow { display: flex; align-items: baseline; gap: 32px; }
+.rmpb-listrow__num {
+  font-family: var(--rmp-font-display);
+  color: var(--rmp-terracotta);
+  flex-shrink: 0;
+}
+.rmpb-listrow__name {
+  font-size: var(--rmp-type-list-item-size);
+  font-weight: 600;
+  color: var(--rmp-ink);
+}
+.rmpb-listrow__rule {
+  font-size: calc(var(--rmp-type-list-item-size) - 4px);
+  color: var(--rmp-body-text);
+  line-height: 1.4;
+}
+
+.rmpb-chip {
+  font-family: var(--rmp-font-label);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--rmp-ink);
+  border: 2px solid var(--rmp-rule-secondary);
+  padding: 14px 24px;
+  border-radius: var(--rmp-radius-badge);
+}
+
+/* Grove's pill badge + numbered circle chip vocabulary (hidden elsewhere via
+   the rmpb-only-grove wrappers that carry them). */
+.rmpb-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--rmp-green);
+  color: var(--rmp-on-dark);
+  font-family: var(--rmp-font-label);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border-radius: 999px;
+}
+.rmpb-pill--tint {
+  background: rgba(201, 123, 74, 0.15);
+  color: var(--rmp-why-accent);
+}
+.rmpb-numchip {
+  width: 60px;
+  height: 60px;
+  border-radius: 999px;
+  background: var(--rmp-green);
+  color: var(--rmp-on-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--rmp-font-display);
+  font-size: 26px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ---- CTA ------------------------------------------------------------------- */
+.rmpb-cta-main { gap: 36px; position: relative; }
+.rmpb-cta-headline {
+  font-family: var(--rmp-font-display);
+  font-size: calc(var(--rmp-type-cover-display-size) - 24px);
+  font-weight: var(--rmp-type-cover-display-weight);
+  letter-spacing: var(--rmp-type-display-tracking);
+  line-height: 1.08;
+  color: var(--rmp-cover-ink);
+  margin: 0;
+}
+.rmpb-cta-body {
+  font-size: var(--rmp-type-cover-sub-size);
+  line-height: 1.6;
+  color: var(--rmp-cover-ink-soft);
+  max-width: 760px;
+  margin: 0;
+}
+/* Mill Paper: underlined link, no button. Spec: bordered mono box.
+   Grove: terracotta pill. Structure shared, themes restyle. */
+.rmpb-cta-action {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 22px;
+}
+.rmpb-cta-action__label {
+  font-family: var(--rmp-font-label);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--rmp-cover-ink);
+}
+.rmpb-cta-action__arrow { color: var(--rmp-cover-accent); font-size: 36px; line-height: 1; }
+
+/* ---- Tables (comparison-table) ---------------------------------------------- */
+/* Header row hugs its content; the data rows split the remaining height. */
+.rmpb-table { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.9fr; grid-template-rows: auto; grid-auto-rows: 1fr; flex: 1; min-height: 0; }
+.rmpb-table__hcell {
+  font-family: var(--rmp-font-label);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+}
+.rmpb-table__cell {
+  font-size: 26px;
+  color: var(--rmp-body-text);
+  line-height: 1.35;
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+}
+.rmpb-table__cell--name { font-weight: 600; color: var(--rmp-ink); font-size: 28px; }
+.rmpb-table__row--hl .rmpb-table__cell { background: rgba(185, 85, 47, 0.08); }
+
+/* ---- Benefit grid ------------------------------------------------------------ */
+.rmpb-benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 56px; flex: 1; align-content: center; }
+.rmpb-benefit { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px; padding: 20px 12px; }
+.rmpb-benefit__icon { color: var(--rmp-green); }
+.rmpb-benefit__icon svg { width: 72px; height: 72px; display: block; stroke-width: 1.25; }
+.rmpb-benefit__label {
+  font-size: var(--rmp-type-body-size);
+  font-weight: 600;
+  color: var(--rmp-ink);
+  line-height: 1.3;
+  max-width: 380px;
+}
+
+/* ---- Question spec pair (optional 2-cell mini spec table) ------------------- */
+.rmpb-specpair { display: flex; align-items: stretch; }
+.rmpb-speccell { flex: 1; padding: 20px 28px; }
+.rmpb-speccell + .rmpb-speccell { border-left: 2px solid var(--rmp-rule-secondary); }
+.rmpb-speccell__label {
+  font-family: var(--rmp-font-label);
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rmp-muted);
+  margin-bottom: 8px;
+}
+.rmpb-speccell__value {
+  font-family: var(--rmp-font-display);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--rmp-ink);
+}
+
+/* Meta text sits fainter on cover-field slides. */
+.rmpb-slide--field .rmpb-meta { color: var(--rmp-cover-ink-faint); }
+.rmpb-slide--field .rmpb-body { color: var(--rmp-cover-ink-soft); }
+
+/* Turn-2 covers carry the wordmark alone; the emblem's presence is the
+ * watermark. Grove re-displays the small lockup emblem (its own cover shows
+ * one). */
+.rmpb-cover-lockup-emblem { display: none; }
+[data-rmp-theme='grove'] .rmpb-cover-lockup-emblem { display: block; }
+
+/* Pulled line (single-highlight): the one genuine-italic emphasis moment. */
+.rmpb-pullline {
+  font-family: var(--rmp-font-display);
+  font-style: italic;
+  font-size: 44px;
+  line-height: 1.3;
+  color: var(--rmp-cover-accent);
+  border-left: 4px solid var(--rmp-cover-accent);
+  padding-left: 34px;
+  max-width: 800px;
+}
+
+/* Bullet dot for competitor-card rows. */
+.rmpb-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background: var(--rmp-terracotta);
+  margin-top: 14px;
+  flex-shrink: 0;
+}
+
+/* Stat hero (spotlight). */
+.rmpb-stat { line-height: 1; letter-spacing: -0.02em; }
+.rmpb-stat__unit { font-size: 0.38em; font-weight: 600; color: var(--rmp-terracotta); margin-left: 6px; }
+
+/* ---- Photo slot (Grove's arch; dashed placeholder until real photography) --- */
+.rmpb-photo-slot {
+  border-radius: 280px 280px 32px 32px;
+  overflow: hidden;
+  border: 3px dashed var(--rmp-rule-on-dark);
+  background: rgba(239, 232, 216, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: var(--rmp-cover-ink-faint);
+}
+.rmpb-photo-slot img { width: 100%; height: 100%; object-fit: cover; }
+.rmpb-photo-slot--filled { border-style: solid; }
+.rmpb-photo-slot__hint {
+  font-family: var(--rmp-font-label);
+  font-size: 22px;
+  letter-spacing: 0.1em;
+  text-align: center;
+  line-height: 1.5;
+}

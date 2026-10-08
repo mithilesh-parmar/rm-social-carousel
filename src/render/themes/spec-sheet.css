@@ -1,0 +1,128 @@
+/* 1b SPEC SHEET — raw-material trade document. Every slide wrapped in a
+ * border frame; header/footer are rows of bordered cells; mono doc codes;
+ * uppercase Space Grotesk display on chrome moments. Credible, precise. */
+
+[data-rmp-theme='spec-sheet'] .rmpb-slide { --rmpb-list-gap: 18px; }
+
+/* The frame IS the layout: 3px border box inset from the slide edge (the
+ * slide's --rmp-frame-inset padding), cells flush against it. */
+[data-rmp-theme='spec-sheet'] .rmpb-frame {
+  border: 3px solid var(--rmp-rule-primary);
+  padding: 0;
+}
+[data-rmp-theme='spec-sheet'] .rmpb-slide--field .rmpb-frame { border-color: var(--rmp-rule-on-dark); }
+
+/* Header/footer strips: bordered cell rows. */
+[data-rmp-theme='spec-sheet'] .rmpb-head {
+  border-bottom: 3px solid var(--rmp-rule-primary);
+  padding: 0;
+}
+[data-rmp-theme='spec-sheet'] .rmpb-foot,
+[data-rmp-theme='spec-sheet'] .rmpb-why {
+  border-top: 3px solid var(--rmp-rule-primary);
+  padding: 0;
+}
+[data-rmp-theme='spec-sheet'] .rmpb-slide--field .rmpb-head { border-bottom-color: var(--rmp-rule-on-dark); }
+[data-rmp-theme='spec-sheet'] .rmpb-slide--field .rmpb-foot { border-top-color: var(--rmp-rule-on-dark); }
+/* Everything that isn't a flush strip (header/footer/why cells) sits inside
+ * a 40px gutter from the frame border. */
+[data-rmp-theme='spec-sheet'] .rmpb-frame > :not(.rmpb-head):not(.rmpb-foot):not(.rmpb-why) {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+[data-rmp-theme='spec-sheet'] .rmpb-cell { padding: 24px 36px; }
+[data-rmp-theme='spec-sheet'] .rmpb-cell + .rmpb-cell { border-left: 2px solid var(--rmp-rule-secondary); }
+
+/* Solid-green doc-code cell (Q.01) with cream mono text. */
+[data-rmp-theme='spec-sheet'] .rmpb-cell--code {
+  background: var(--rmp-green);
+  color: var(--rmp-bg);
+  font-family: var(--rmp-font-mono);
+  font-size: 26px;
+  font-weight: 600;
+  border-right: 3px solid var(--rmp-rule-primary);
+}
+[data-rmp-theme='spec-sheet'] .rmpb-cell .rmpb-label,
+[data-rmp-theme='spec-sheet'] .rmpb-cell .rmpb-meta { font-family: var(--rmp-font-mono); }
+
+/* Labels/meta run mono everywhere in this theme. */
+[data-rmp-theme='spec-sheet'] .rmpb-label,
+[data-rmp-theme='spec-sheet'] .rmpb-meta,
+[data-rmp-theme='spec-sheet'] .rmpb-cover-cue,
+[data-rmp-theme='spec-sheet'] .rmpb-why__label { font-family: var(--rmp-font-mono); }
+
+/* Cover/single-highlight rows aren't bordered cells, so they need their own
+ * air inside the zero-padding frame (CTA's cellrow header stays flush). */
+[data-rmp-theme='spec-sheet'] .rmpb-cover-head { margin-top: 36px; }
+[data-rmp-theme='spec-sheet'] .rmpb-cover-foot { margin-bottom: 34px; }
+
+/* Cover + CTA display: uppercase (interiors stay sentence case). */
+[data-rmp-theme='spec-sheet'] .rmpb-cover-headline,
+[data-rmp-theme='spec-sheet'] .rmpb-cta-headline { text-transform: uppercase; }
+
+/* Why-it-matters: bordered bottom strip, terracotta left cell on a tinted
+ * field. */
+[data-rmp-theme='spec-sheet'] .rmpb-why { display: flex; align-items: stretch; }
+[data-rmp-theme='spec-sheet'] .rmpb-why__label {
+  display: flex;
+  align-items: center;
+  padding: 28px 36px;
+  background: var(--rmp-callout-bg);
+  border-right: 3px solid var(--rmp-terracotta);
+  letter-spacing: 0.1em;
+  max-width: 220px;
+  white-space: normal;
+}
+[data-rmp-theme='spec-sheet'] .rmpb-why__body {
+  display: flex;
+  align-items: center;
+  padding: 24px 36px;
+  font-size: var(--rmp-type-why-size);
+}
+
+/* Question spec-pair: bordered 2-cell mini table. */
+[data-rmp-theme='spec-sheet'] .rmpb-specpair { border: 2px solid var(--rmp-rule-secondary); }
+
+/* Payoff/list rows: mono index column + hairline rows. */
+[data-rmp-theme='spec-sheet'] .rmpb-listrow {
+  padding: 14px 40px;
+  border-top: 2px solid var(--rmp-rule-secondary);
+  gap: 40px;
+}
+[data-rmp-theme='spec-sheet'] .rmpb-listrow__num {
+  font-family: var(--rmp-font-mono);
+  font-size: 24px;
+  width: 56px;
+}
+
+/* Cards: bordered cells, square corners. */
+[data-rmp-theme='spec-sheet'] .rmpb-card {
+  border: 2px solid var(--rmp-rule-secondary);
+  padding: 18px 32px;
+}
+[data-rmp-theme='spec-sheet'] .rmpb-chip {
+  border-radius: 0;
+  border: 2px solid var(--rmp-rule-secondary);
+  font-family: var(--rmp-font-mono);
+}
+
+/* Table: full bordered grid, solid green header cells. */
+[data-rmp-theme='spec-sheet'] .rmpb-table { border: 2px solid var(--rmp-rule-secondary); }
+[data-rmp-theme='spec-sheet'] .rmpb-table__hcell {
+  background: var(--rmp-green);
+  color: var(--rmp-bg);
+  font-family: var(--rmp-font-mono);
+}
+[data-rmp-theme='spec-sheet'] .rmpb-table__cell { border-top: 2px solid var(--rmp-rule-secondary); }
+[data-rmp-theme='spec-sheet'] .rmpb-table__cell:not(:first-child),
+[data-rmp-theme='spec-sheet'] .rmpb-table__hcell:not(:first-child) { border-left: 2px solid var(--rmp-rule-secondary); }
+
+/* CTA: bordered mono action box. */
+[data-rmp-theme='spec-sheet'] .rmpb-cta-action {
+  border: 3px solid var(--rmp-cover-accent);
+  padding: 24px 36px;
+}
+[data-rmp-theme='spec-sheet'] .rmpb-cta-action__label { font-family: var(--rmp-font-mono); font-size: 26px; }
+
+/* Stat voice: mono-labeled spec cells; big values in the display face. */
+[data-rmp-theme='spec-sheet'] .rmpb-stat { font-family: var(--rmp-font-display); font-weight: 700; color: var(--rmp-ink); }

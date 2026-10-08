@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="__FONTS_CSS__">
+<link rel="stylesheet" href="__TOKENS_CSS__">
+<link rel="stylesheet" href="__BRANDED_CSS__">
+<link rel="stylesheet" href="__THEME_CSS__">
+</head>
+<body data-rmp-theme="__THEME_NAME__">
+<!-- Numbered question slide. Chrome per theme: 1a caps label + series index
+     over a giant serif numeral; 1b Q-code cell + FIELD cell + page index;
+     1c green pill QUESTION n / total. -->
+<section class="rmpb-slide">
+  <div class="rmpb-frame">
+    <header class="rmpb-head">
+      <div class="rmpb-only-mill rmpb-row rmpb-row--baseline">
+        <div class="rmpb-label">Question</div>
+        <div class="rmpb-meta">{{_numPadded}} / {{_totalPadded}}</div>
+      </div>
+      <div class="rmpb-only-spec rmpb-cellrow">
+        <div class="rmpb-cell rmpb-cell--code">Q.{{_numPadded}}</div>
+        <div class="rmpb-cell rmpb-cell--grow"><span class="rmpb-label">Field: {{fieldLabel}}</span></div>
+        <div class="rmpb-cell"><span class="rmpb-meta" data-rmp-page-index></span></div>
+      </div>
+      <div class="rmpb-only-grove rmpb-row">
+        <div class="rmpb-pill">Question {{num}} <span style="color:var(--rmp-tan);">/ {{totalInSeries}}</span></div>
+        <div class="rmpb-meta" data-rmp-page-index></div>
+      </div>
+    </header>
+
+    <main class="rmpb-main rmpb-main--question">
+      <div class="rmpb-q-numeral rmpb-only-mill">{{num}}</div>
+      <div style="display:flex;flex-direction:column;gap:32px;min-width:0;">
+        <h2 class="rmpb-display">{{headline}}</h2>
+        <p class="rmpb-body">{{body}}</p>
+        {{{_specPairHtml}}}
+      </div>
+    </main>
+
+    <footer class="rmpb-why">
+      <span class="rmpb-why__emblem rmpb-only-grove">{{{_emblemRustTag}}}</span>
+      <div class="rmpb-why__label">Why it matters</div>
+      <div class="rmpb-why__body">{{whyItMatters}}</div>
+    </footer>
+  </div>
+</section>
+<script src="__CHROME_JS__"></script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+[
+  {
+    "id": "psyllium-vs-inulin-sunfiber-fenugreek-acacia",
+    "topic": "Psyllium vs Inulin, Sunfiber (PHGG), Fenugreek & Acacia",
+    "pillar": "technical-qa-formulation",
+    "sourceDoc": "src/data/site.ts#psyllium-vs-inulin-sunfiber-fenugreek-fiber-comparison",
+    "targetQueries": [
+      "sunfiber vs psyllium husk",
+      "phgg vs psyllium",
+      "psyllium vs inulin",
+      "acacia fiber vs psyllium",
+      "Design a fiber blend: psyllium for the claim plus something gentle for tolerance"
+    ],
+    "notes": "Suggested first real run — matching in-depth article (S1) already exists as a facts source, reduces research burden. P2 formulator lane, our strongest existing GSC lane."
+  },
+  {
+    "id": "mesh-size-buyer-guide",
+    "topic": "40 Mesh Coarse Husk vs 100 Mesh Fine Powder: Choosing by Application",
+    "pillar": "technical-qa-formulation",
+    "targetQueries": [
+      "psyllium mesh size chart 40 60 80 100",
+      "psyllium husk whole vs powder",
+      "Why is my psyllium drink mix gritty and how do formulators fix it?"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "qa-audit-checklist",
+    "topic": "The QA Audit Checklist for Bulk Psyllium Sourcing",
+    "pillar": "technical-qa-formulation",
+    "targetQueries": [
+      "psyllium supplier audit checklist",
+      "psyllium supplier qualification checklist"
+    ],
+    "notes": "Matches the approved 7-slide demo fixture — good regression-check topic for re-runs."
+  },
+  {
+    "id": "reading-a-coa",
+    "topic": "How to Read a Psyllium COA: 6 Numbers Every Buyer Should Check",
+    "pillar": "sourcing-derisked",
+    "targetQueries": [
+      "psyllium husk COA example",
+      "NABL accredited lab COA meaning",
+      "What must a COA for psyllium husk include for our FSVP file?",
+      "Which psyllium spec limits should QA reject on?"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "fob-vs-cif",
+    "topic": "FOB Mundra vs CIF: What Changes for a First-Time Psyllium Buyer",
+    "pillar": "trade-logistics-b2b-ops",
+    "targetQueries": [
+      "FOB Mundra shipping time USA",
+      "psyllium MOQ container",
+      "psyllium husk payment terms exporter LC TT"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "why-repackaged-psyllium-from-distributors-costs-you-more-than-buying-direct",
+    "topic": "Why Repackaged Psyllium From Distributors Costs You More Than Buying Direct",
+    "pillar": "Sourcing De-risked",
+    "targetQueries": [
+      "Compare buying psyllium from a US distributor vs importing direct — total landed cost at 2 tons"
+    ],
+    "notes": "Growth-stage DTC brands who've been quietly overpaying distributor markups on relabeled bulk material will stop scrolling to see the direct-mill alternative laid out."
+  },
+  {
+    "id": "bench-trial-sample-kits-what-100g-to-500g-actually-lets-you-test",
+    "topic": "Bench-Trial Sample Kits: What 100g to 500g Actually Lets You Test",
+    "pillar": "Sourcing De-risked",
+    "targetQueries": [
+      "psyllium husk sample before bulk order",
+      "Cheapest way to test a psyllium product idea before ordering 10,000 units?"
+    ],
+    "notes": "R&D chemists blocked by mills demanding 5-20 MT commitments will engage with a concrete explanation of how small a sample can be before it stops being useful for formulation work."
+  },
+  {
+    "id": "private-label-without-the-guesswork-the-questions-we-ll-ask-you-first",
+    "topic": "Private Label Without the Guesswork: The Questions We'll Ask You First",
+    "pillar": "Sourcing De-risked",
+    "targetQueries": [
+      "private label psyllium",
+      "private label fiber supplement manufacturer",
+      "white label psyllium capsules",
+      "MOQ private label supplements"
+    ],
+    "notes": "DTC brands unsure if they even qualify for private label want to see the actual intake questions (packaging, artwork, pack size) so they can self-assess fit before reaching out, lowering their fear of being turned away. Private-label is the biggest GSC impression theme (P4)."
+  },
+  {
+    "id": "the-distributor-markup-breakdown-where-your-per-kilo-cost-actually-goes-when-you",
+    "topic": "The Distributor Markup Breakdown: Where Your Per-Kilo Cost Actually Goes When You're Not Buying From the Mill",
+    "pillar": "Sourcing De-risked",
+    "notes": "DTC brands priced out of direct mill supply want to see concretely which cost layers (repackaging, distributor margin, logistics markup) they're paying for versus material itself."
+  },
+  {
+    "id": "psyllium-price-outlook-2026",
+    "topic": "Psyllium Price Outlook 2026: Crop, Contracts, and When to Book",
+    "pillar": "Market Intelligence",
+    "targetQueries": [
+      "psyllium husk price per kg 2026",
+      "psyllium price trend",
+      "psyllium crop report India",
+      "why did psyllium prices increase",
+      "What's the outlook for psyllium prices this year and should I lock a contract now or buy spot?"
+    ],
+    "notes": "Lane 1a of docs/icp-query-matrix.md — the repeat-visit magnet, near-zero competition. IMPORTANT: public market ranges only, never RM's private ex-factory rate card. Every persona reads this quarterly."
+  },
+  {
+    "id": "importing-psyllium-us-documents-fda-steps",
+    "topic": "Importing Psyllium Into the US: Documents, FDA Steps, and Where Shipments Get Stuck",
+    "pillar": "Trade & Logistics",
+    "targetQueries": [
+      "FDA requirements importing psyllium from India",
+      "prior notice psyllium shipment",
+      "FSVP requirements dietary supplement ingredient",
+      "psyllium husk HS code import duty USA",
+      "Walk me through importing 5 tons of psyllium husk from India to the US — documents, FDA steps, costs"
+    ],
+    "notes": "Lane 1b — FDA queries already rank ~pos 8-10 on the site; carousel version feeds P1/P4/P5b."
+  },
+  {
+    "id": "psyllium-heavy-metals-safe-sourcing",
+    "topic": "Lead in Psyllium: What the Numbers Mean and How Buyers Source Below Prop 65 Limits",
+    "pillar": "Technical Authority",
+    "targetQueries": [
+      "lead in psyllium husk",
+      "does psyllium contain lead",
+      "Prop 65 psyllium",
+      "psyllium heavy metals COA",
+      "What lead level in psyllium is acceptable for a California supplement?"
+    ],
+    "notes": "Lane 1c — proven GSC lane (EN pos ~8, DE pos 3.4). EXTRA claim-safety care: explain testing and limits, never guarantee compliance or imply certification."
+  },
+  {
+    "id": "mill-vs-trader-how-to-tell",
+    "topic": "Mill vs Trader: How to Tell Who You're Actually Buying Psyllium From",
+    "pillar": "Sourcing De-risked",
+    "targetQueries": [
+      "mill vs trader psyllium",
+      "how to verify Indian supplier legit",
+      "Find psyllium suppliers that sell direct from the mill in India, not through traders"
+    ],
+    "notes": "Lane 1d supplier-vetting — currently lost to competitor listicles. Identity/verification angle (distinct from the cost angle in the repackaged-psyllium topic)."
+  },
+  {
+    "id": "vet-indian-psyllium-supplier-before-deposit",
+    "topic": "How to Vet an Indian Psyllium Supplier Before Wiring a Deposit",
+    "pillar": "Sourcing De-risked",
+    "targetQueries": [
+      "psyllium supplier scam",
+      "how to verify Indian supplier legit",
+      "How do I vet an Indian botanical supplier before wiring a deposit?"
+    ],
+    "notes": "Lane 1d fear queries — 'a buyer Googling psyllium supplier scam is days from a PO with whoever calms them down with evidence.'"
+  },
+  {
+    "id": "psyllium-gummy-gelling",
+    "topic": "Psyllium in a Gummy? Grade, Mesh, and the Gelling Problem",
+    "pillar": "technical-qa-formulation",
+    "targetQueries": [
+      "psyllium gummy formulation",
+      "psyllium gel formation mechanism",
+      "I'm formulating a fiber gummy — can I use psyllium or will it gel? What grade and mesh?"
+    ],
+    "notes": "P2 formulator lane — real formulation pain, positions RM as the technical answer, not just a seller."
+  },
+  {
+    "id": "psyllium-lot-clumped-troubleshooting",
+    "topic": "Why a Psyllium Lot Clumps in Production: Moisture, Mesh, or Storage?",
+    "pillar": "technical-qa-formulation",
+    "targetQueries": [
+      "psyllium moisture spec 12%",
+      "psyllium husk shelf life storage",
+      "My psyllium lot clumped in production — what went wrong, moisture or mesh?"
+    ],
+    "notes": "P1 ongoing-relationship queries — troubleshooting content that procurement shares internally."
+  },
+  {
+    "id": "glp1-fiber-brand-sourcing-first",
+    "topic": "Launching a Fiber Brand for GLP-1 Users: Get Sourcing Right Before Branding",
+    "pillar": "Sourcing De-risked",
+    "targetQueries": [
+      "GLP-1 fiber supplement opportunity",
+      "how to start a fiber supplement brand",
+      "I want to launch a fiber brand for GLP-1 users — walk me through sourcing, manufacturing, and compliance"
+    ],
+    "notes": "P4 founder lane — matching article already exists on site (GLP-1 fiber opportunity), use it as source doc."
+  },
+  {
+    "id": "psyllium-second-source-qualification",
+    "topic": "Qualifying a Backup Psyllium Mill: The Second-Source Checklist",
+    "pillar": "Sourcing De-risked",
+    "targetQueries": [
+      "psyllium husk dual source backup supplier",
+      "second source Indian botanicals",
+      "We run 40 SKUs with psyllium — criteria for qualifying a second Indian mill as backup?",
+      "Our psyllium mill missed two shipments — shortlist backup mills in Gujarat with export documentation"
+    ],
+    "notes": "P5 contract manufacturer + P5b distributor lane — supply-security angle fits a pre-revenue mill pitching itself as the qualified backup."
+  },
+  {
+    "id": "equine-psyllium-feed-vs-human-grade",
+    "topic": "Feed-Grade vs Human-Grade Psyllium for Equine Supplements",
+    "pillar": "Technical Authority",
+    "targetQueries": [
+      "psyllium for horses bulk",
+      "feed grade psyllium husk supplier",
+      "Feed-grade vs human-grade psyllium — what's the actual difference and price gap?"
+    ],
+    "notes": "P6 equine lane — near-zero competition, opens the bridge segment."
+  },
+  {
+    "id": "gluten-free-bread-psyllium-spec",
+    "topic": "The Psyllium Spec Behind Gluten-Free Bread (and the Purple-Bread Problem)",
+    "pillar": "Technical Authority",
+    "targetQueries": [
+      "psyllium powder gluten free bread structure",
+      "whole husk vs powder baking",
+      "why psyllium in gluten free bread",
+      "Bulk psyllium that won't turn our bread purple — what causes that and which spec avoids it?"
+    ],
+    "notes": "P7 GF bakery lane — real formulator pain (colored specks), ES page already pos 6.4 on husk-vs-powder."
+  },
+  {
+    "id": "guar-vs-psyllium-tackifier-hydroseeding",
+    "topic": "Guar vs Psyllium Tackifier for Hydroseeding and Erosion Control",
+    "pillar": "Technical Authority",
+    "targetQueries": [
+      "psyllium tackifier hydroseeding",
+      "guar vs psyllium tackifier",
+      "Guar prices spiked — is psyllium a drop-in tackifier replacement and who sells industrial grade in bulk?"
+    ],
+    "notes": "P8 industrial lane — half a day of content owns the lane outright per the query matrix build order."
+  },
+  {
+    "id": "the-minimum-order-trap-why-5-20-mt-mills-won-t-talk-to-a-brand-doing-its-first-2",
+    "topic": "The Minimum Order Trap: Why 5-20 MT Mills Won't Talk to a Brand Doing Its First 2 MT Run",
+    "pillar": "Sourcing De-risked",
+    "notes": "Growth-stage DTC brands are explicitly excluded from direct mill supply by high MOQs and forced into marked-up distributor material, so naming that exact trap and offering a path around it addresses their core pain."
+  }
+]

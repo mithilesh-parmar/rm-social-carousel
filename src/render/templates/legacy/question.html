@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="__GOOGLE_FONTS_HREF__" rel="stylesheet">
+<link rel="stylesheet" href="__TOKENS_CSS__">
+<link rel="stylesheet" href="__LAYOUT_CSS__">
+</head>
+<body>
+<!-- Legacy fallback for the (branded-first) question slide type, so a deck
+     planned with a question slide still renders under the old themes:
+     numbered question + body + the action-note strip carrying "why it
+     matters". Styled entirely in the legacy vocabulary. -->
+<section class="rmp-slide rmp-slide--pad rmp-slide--space-between">
+  <div class="rmp-doc-bar">
+    <div class="rmp-kicker">Question {{_numPadded}} / {{_totalPadded}}</div>
+    <div class="rmp-doc-meta">RM Psyllium · Gujarat, India</div>
+  </div>
+
+  <div class="rmp-center-block">
+    <h2 class="rmp-h1" style="margin-bottom:26px;">{{headline}}</h2>
+    <p class="rmp-body rmp-body--lg" style="margin-bottom:44px;max-width:880px;">{{body}}</p>
+    <div class="rmp-action-note">
+      <div class="rmp-action-note__label">Why it matters</div>
+      <div class="rmp-card-body">{{whyItMatters}}</div>
+    </div>
+  </div>
+
+  <div class="rmp-doc-foot">
+    <div class="rmp-footer-slot rmp-footer-index"></div>
+    <div class="rmp-footer-index">rmpsyllium.com</div>
+  </div>
+</section>
+<script src="__FOOTER_INDEX_JS__"></script>
+</body>
+</html>

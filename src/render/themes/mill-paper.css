@@ -1,0 +1,101 @@
+/* 1a MILL PAPER — premium editorial. Serif display, full-width hairline
+ * ledger rules top and bottom, footnote-style "why it matters", roman-numeral
+ * payoff rows, underlined-link CTA. Quiet, expensive. */
+
+/* (Chrome-block visibility is handled centrally in branded.css via
+ * body:not([data-rmp-theme=...]) — blocks keep their natural display.) */
+
+/* Ledger frame: header closed by a full-strength hairline, footer opened by
+ * a secondary one (the reference is 1px at 540 → 2px at production). */
+[data-rmp-theme='mill-paper'] .rmpb-head {
+  padding-bottom: 28px;
+  border-bottom: 2px solid var(--rmp-rule-primary);
+}
+[data-rmp-theme='mill-paper'] .rmpb-foot,
+[data-rmp-theme='mill-paper'] .rmpb-why {
+  padding-top: 30px;
+  border-top: 2px solid var(--rmp-rule-secondary);
+}
+[data-rmp-theme='mill-paper'] .rmpb-slide--field .rmpb-head { border-bottom-color: var(--rmp-rule-on-dark); }
+[data-rmp-theme='mill-paper'] .rmpb-slide--field .rmpb-foot { border-top-color: var(--rmp-rule-on-dark); }
+
+/* Why-it-matters = a footnote row: small caps label + italic serif line,
+ * NO boxed card. */
+[data-rmp-theme='mill-paper'] .rmpb-why { display: flex; gap: 36px; align-items: baseline; }
+[data-rmp-theme='mill-paper'] .rmpb-why__label { padding-top: 6px; }
+[data-rmp-theme='mill-paper'] .rmpb-why__body {
+  font-family: var(--rmp-font-display);
+  font-style: italic;
+}
+
+/* Question: giant terracotta serif numeral beside the title. */
+[data-rmp-theme='mill-paper'] .rmpb-q-numeral {
+  font-family: var(--rmp-font-display);
+  font-size: var(--rmp-type-giant-num-size);
+  line-height: 0.9;
+  font-weight: 400;
+  color: var(--rmp-terracotta);
+}
+[data-rmp-theme='mill-paper'] .rmpb-main--question {
+  flex-direction: row;
+  gap: 52px;
+  /* Vertically centered between the header rule and the why-strip — top-
+   * aligning left a dead band above the footnote on tall (4:5) canvases. */
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Payoff/list rows: hairline rules between rows, roman numerals. */
+[data-rmp-theme='mill-paper'] .rmpb-listrow {
+  padding: 12px 0;
+  border-top: 2px solid var(--rmp-rule-secondary);
+}
+[data-rmp-theme='mill-paper'] .rmpb-listrow:last-child { border-bottom: 2px solid var(--rmp-rule-primary); }
+[data-rmp-theme='mill-paper'] .rmpb-listrow__num { font-size: 30px; width: 56px; }
+
+/* Cards dissolve into the paper: no fill, hairline separation only. */
+[data-rmp-theme='mill-paper'] .rmpb-card {
+  border-top: 2px solid var(--rmp-rule-secondary);
+  padding: 26px 0;
+}
+[data-rmp-theme='mill-paper'] .rmpb-chip {
+  border-radius: 0;
+  border: none;
+  border-bottom: 2px solid var(--rmp-rule-secondary);
+  padding: 8px 2px;
+}
+
+/* The ledger closes: secondary rules separate, a primary rule ends the page
+ * (matching the payoff's last row). Without it the open hairline rows just
+ * stop and the slide reads unfinished. */
+[data-rmp-theme='mill-paper'] .rmpb-roundup .rmpb-card:last-child {
+  border-bottom: 2px solid var(--rmp-rule-primary);
+}
+[data-rmp-theme='mill-paper'] .rmpb-table__cell:nth-last-child(-n + 4) {
+  border-bottom: 2px solid var(--rmp-rule-primary);
+}
+
+/* Table: ledger lines, no cell borders, header letterspaced caps. */
+[data-rmp-theme='mill-paper'] .rmpb-table__hcell {
+  border-bottom: 2px solid var(--rmp-rule-primary);
+  color: var(--rmp-muted);
+  padding-left: 0;
+}
+[data-rmp-theme='mill-paper'] .rmpb-table__cell {
+  border-bottom: 2px solid var(--rmp-rule-secondary);
+  padding-left: 0;
+}
+
+/* CTA: underlined link, never a pill button. */
+[data-rmp-theme='mill-paper'] .rmpb-cta-action__label {
+  border-bottom: 4px solid var(--rmp-terracotta);
+  padding-bottom: 12px;
+}
+[data-rmp-theme='mill-paper'] .rmpb-slide--field .rmpb-cta-action__label { border-bottom-color: var(--rmp-cover-accent); }
+
+/* Stat voice: serif, terracotta. */
+[data-rmp-theme='mill-paper'] .rmpb-stat {
+  font-family: var(--rmp-font-display);
+  font-weight: 400;
+  color: var(--rmp-terracotta);
+}

@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "topic": "Preview matrix — every slide type, for the design-system contact sheet",
+    "pillar": "Preview",
+    "accentColor": "#B8753A"
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "kicker": "Private label, demystified",
+      "badge": "Sourcing, de-risked",
+      "headline": "Private label, without the *guesswork*.",
+      "subhead": "The 5 questions we ask every buyer before we quote — so you know exactly what to expect.",
+      "swipeCue": "Swipe — the intake process"
+    },
+    {
+      "type": "question",
+      "num": 1,
+      "totalInSeries": 5,
+      "fieldLabel": "Mesh size / purity grade",
+      "headline": "What mesh size and purity grade do you need?",
+      "body": "Mesh size and purity change how psyllium behaves in your formula. A capsule blend and a baked-good mix need different specs — we match ours to your use.",
+      "whyItMatters": "Right specs upfront mean your formulation team isn't reworking recipes after the sample arrives.",
+      "specs": [
+        { "label": "Typical — capsule", "value": "40–60 mesh" },
+        { "label": "Typical — food", "value": "80–100 mesh" }
+      ]
+    },
+    {
+      "type": "verdict-list",
+      "kicker": "The payoff",
+      "headline": "Answer these upfront, get a smoother launch.",
+      "subhead": "Five answers, five things that stop going wrong.",
+      "rows": [
+        { "num": "01", "name": "Faster quotes", "rule": "Specs in hand means pricing the same day, not after a call." },
+        { "num": "02", "name": "Matched COAs", "rule": "Lab numbers tied to your actual use case." },
+        { "num": "03", "name": "Right-size packaging", "rule": "Sized right the first time, no repack fees." },
+        { "num": "04", "name": "Fewer port surprises", "rule": "Docs agreed before the container moves." },
+        { "num": "05", "name": "Mill pricing", "rule": "Direct from the mill, no broker markup." }
+      ]
+    },
+    {
+      "type": "stat-callout",
+      "kicker": "Checklist · 02",
+      "headline": "Ask for the lot-specific COA, not a template.",
+      "body": "A templated COA describes the product line; a lot-specific COA describes the bag you receive. The difference shows up in moisture, mesh, and purity numbers.",
+      "actionLabel": "What to check",
+      "actionBody": "The COA date, the lot number on the bag, and whether the mesh spec matches your PO."
+    },
+    {
+      "type": "spotlight",
+      "kicker": "The benchmark",
+      "badge": "Psyllium husk",
+      "statValue": "85",
+      "statUnit": "%+",
+      "statCaption": "typical purity, food grade",
+      "headline": "Psyllium is the fiber the others get compared to.",
+      "body": "Gel strength, water binding, and a recognized health story in one ingredient — that's why it anchors the category."
+    },
+    {
+      "type": "comparison-table",
+      "kicker": "Side by side",
+      "headline": "Four fibers, compared honestly.",
+      "columnHeaders": ["Fiber", "Gelling", "Dose", "Best fit"],
+      "rows": [
+        { "fiber": "Psyllium", "ferm": "Strong gel", "visc": "Low dose", "fit": "Gut health, satiety, bakery binding", "highlight": true },
+        { "fiber": "Inulin", "ferm": "None", "visc": "High dose", "fit": "Prebiotic claims, tolerance permitting", "highlight": false },
+        { "fiber": "Sunfiber", "ferm": "None", "visc": "Medium", "fit": "Clear beverages, gentle positioning", "highlight": false },
+        { "fiber": "Acacia", "ferm": "None", "visc": "High dose", "fit": "Low-gas gentle fiber", "highlight": false },
+        { "fiber": "Fenugreek", "ferm": "Viscous", "visc": "Medium", "fit": "Metabolic story, strong flavor", "highlight": false }
+      ]
+    },
+    {
+      "type": "competitor-card",
+      "kicker": "The field · inulin",
+      "headline": "Inulin: the prebiotic workhorse, with a dose ceiling.",
+      "pillTags": ["Chicory root", "Prebiotic", "High dose"],
+      "bulletCards": [
+        "Clean label and cheap per kilo, which is why it's everywhere.",
+        "No gel, no viscosity — it disappears in application.",
+        "GI tolerance caps the practical dose well below the label claims."
+      ],
+      "bestFit": "Best when the story is prebiotic and the dose can stay modest."
+    },
+    {
+      "type": "roundup-grid",
+      "kicker": "The rest of the field",
+      "headline": "The other three, in one line each.",
+      "cards": [
+        { "name": "Sunfiber", "tag": "Beverages", "body": "Clear, gentle, low-thickening — the beverage default." },
+        { "name": "Acacia", "tag": "Gentle", "body": "Slow fermentation, low gas, mild positioning." },
+        { "name": "Fenugreek", "tag": "Metabolic", "body": "Viscous with a metabolic story, if flavor allows." }
+      ]
+    },
+    {
+      "type": "decision-map",
+      "kicker": "How to choose",
+      "headline": "Match the fiber to the job.",
+      "rows": [
+        { "need": "Gel and binding", "answer": "Psyllium" },
+        { "need": "Clear beverage", "answer": "Sunfiber / PHGG" },
+        { "need": "Prebiotic story", "answer": "Inulin / FOS" },
+        { "need": "Sensitive users", "answer": "Acacia" }
+      ],
+      "blendNote": "Blends work: psyllium for structure plus a gentle soluble fiber for the label is a common pairing."
+    },
+    {
+      "type": "benefit-grid",
+      "kicker": "Why psyllium",
+      "headline": "What one ingredient covers.",
+      "items": [
+        { "icon": "droplet", "label": "Water binding" },
+        { "icon": "activity-heartbeat", "label": "Heart-health story" },
+        { "icon": "flask", "label": "Lot-specific COAs" },
+        { "icon": "truck-delivery", "label": "Export-ready docs" }
+      ]
+    },
+    {
+      "type": "cta",
+      "headline": "Start with a *sample*, not a sales pitch.",
+      "body": "Tell us your mesh size, application, and timeline. Free sample and COA review, direct from the mill.",
+      "ctaLabel": "Request your free sample",
+      "contactLine": "export@rmpsyllium.com"
+    },
+    {
+      "type": "single-highlight",
+      "kicker": "Sourcing, de-risked",
+      "headline": "One mill. One *COA*. No middlemen.",
+      "statOrQuote": "\"The spec you approve is the spec that ships.\"",
+      "body": "Private-label psyllium direct from Gujarat — samples, COAs, and export docs from one desk.",
+      "ctaLabel": "Request a sample",
+      "contactLine": "export@rmpsyllium.com"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="__FONTS_CSS__">
+<link rel="stylesheet" href="__TOKENS_CSS__">
+<link rel="stylesheet" href="__BRANDED_CSS__">
+<link rel="stylesheet" href="__THEME_CSS__">
+</head>
+<body data-rmp-theme="__THEME_NAME__">
+<!-- The payoff archetype: headline + exactly 5 numbered rows. Numbering voice
+     per theme: roman numerals (1a), mono 01-05 (1b), circle chips (1c). -->
+<section class="rmpb-slide">
+  <div class="rmpb-frame">
+    <header class="rmpb-head">
+      <div class="rmpb-only-mill rmpb-row rmpb-row--baseline">
+        <div class="rmpb-label rmpb-label--accent">{{kicker}}</div>
+        <div class="rmpb-meta" data-rmp-page-index></div>
+      </div>
+      <div class="rmpb-only-spec rmpb-cellrow">
+        <div class="rmpb-cell rmpb-cell--grow"><span class="rmpb-label rmpb-label--accent">Section: {{kicker}}</span></div>
+        <div class="rmpb-cell"><span class="rmpb-meta" data-rmp-page-index></span></div>
+      </div>
+      <div class="rmpb-only-grove rmpb-row">
+        <div class="rmpb-pill rmpb-pill--tint">{{kicker}}</div>
+        <div class="rmpb-meta" data-rmp-page-index></div>
+      </div>
+    </header>
+
+    <h2 class="rmpb-headline" style="padding:28px 0 12px;">{{headline}}</h2>
+    <p class="rmpb-body" style="max-width:880px;">{{subhead}}</p>
+
+    <!-- space-evenly: leftover height distributes BETWEEN the rows instead
+         of pooling into one dead band under the subhead (short content fills
+         the page like a ledger; max-length content collapses the gaps).
+         When content is genuinely too tall, flex overflows DOWN where the
+         post-render pixel check sees it — never up into the subhead. -->
+    <div class="rmpb-listwrap" style="flex:1;min-height:0;padding-top:16px;display:flex;flex-direction:column;justify-content:space-evenly;gap:var(--rmpb-list-gap,0px);">
+      {{#each rows}}
+      <div class="rmpb-listrow">
+        <div class="rmpb-listrow__num rmpb-only-mill">{{_roman}}.</div>
+        <div class="rmpb-listrow__num rmpb-only-spec">{{num}}</div>
+        <div class="rmpb-numchip rmpb-only-grove">{{_n}}</div>
+        <div style="min-width:0;">
+          <div class="rmpb-listrow__name">{{name}}</div>
+          <div class="rmpb-listrow__rule">{{rule}}</div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+<script src="__CHROME_JS__"></script>
+</body>
+</html>

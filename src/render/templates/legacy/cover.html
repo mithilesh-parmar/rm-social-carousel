@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="__GOOGLE_FONTS_HREF__" rel="stylesheet">
+<link rel="stylesheet" href="__TOKENS_CSS__">
+<link rel="stylesheet" href="__LAYOUT_CSS__">
+</head>
+<body>
+<!-- Deep-green cover panel — the design system's signature cover treatment
+     ("use deep green for covers, cover blocks, strong headers"), with the
+     real white logo lockup and gold document details. Dark bookends (cover +
+     cta), light interior slides. -->
+<section class="rmp-slide rmp-slide--pad rmp-slide--dark rmp-slide--space-between">
+  {{{_coverArtTag}}}
+  <div class="rmp-doc-bar rmp-doc-bar--onDark">
+    <div class="rmp-logo rmp-logo--onDark" style="-webkit-mask-image:url('__LOGO_DATA_URI__');mask-image:url('__LOGO_DATA_URI__');"></div>
+    <div class="rmp-badge rmp-badge--onDark">{{badge}}</div>
+  </div>
+
+  <div class="rmp-center-block">
+    <div class="rmp-kicker rmp-kicker--onDark" style="margin-bottom:26px;">{{kicker}}</div>
+    <h1 class="rmp-h1 rmp-h1--onDark" style="margin-bottom:30px;">{{headline}}<span style="color:var(--rmp-gold);">.</span></h1>
+    <p class="rmp-body rmp-body--lg rmp-body--onDark" style="max-width:840px;">{{subhead}}</p>
+  </div>
+
+  <div class="rmp-doc-foot rmp-doc-foot--onDark">
+    <div class="rmp-footer-index rmp-footer-index--onDark">{{swipeCue}}</div>
+    <div class="rmp-dots" style="display:flex;gap:8px;align-items:center;"></div>
+  </div>
+</section>
+<script>
+  // Progress dots — count and current index are injected by captureSlides.js as
+  // window.__RMP_SLIDE_INDEX__ / __RMP_TOTAL_SLIDES__, not authored content.
+  (function () {
+    var total = window.__RMP_TOTAL_SLIDES__ || 1;
+    var index = window.__RMP_SLIDE_INDEX__ || 0;
+    var wrap = document.querySelector('.rmp-dots');
+    for (var i = 0; i < total; i++) {
+      var dot = document.createElement('div');
+      var active = i === index;
+      dot.style.height = '4px';
+      dot.style.borderRadius = '2px';
+      dot.style.width = active ? '40px' : '14px';
+      dot.style.background = active ? 'var(--rmp-gold)' : 'rgba(250, 250, 247, 0.28)';
+      wrap.appendChild(dot);
+    }
+  })();
+</script>
+</body>
+</html>

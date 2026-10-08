@@ -1,0 +1,26 @@
+{
+  "strategy": "2a-alternating",
+  "position": 4,
+  "history": [
+    {
+      "runId": "2026-07-13_psyllium-drink-mixes-that-don-t-clump-husk-vs-powder-mesh-size-sachet-formulatio",
+      "cover": "2a",
+      "at": "2026-07-13T04:24:06.372Z"
+    },
+    {
+      "runId": "2026-07-23_the-minimum-order-trap-why-5-20-mt-mills-won-t-talk-to-a-brand-doing-its-first-2",
+      "cover": "2c",
+      "at": "2026-07-23T13:23:45.198Z"
+    },
+    {
+      "runId": "2026-07-23_psyllium-drink-mixes-that-don-t-clump-husk-vs-powder-mesh-size-sachet-formulatio",
+      "cover": "2a",
+      "at": "2026-07-23T13:40:41.767Z"
+    },
+    {
+      "runId": "2026-07-23_launching-a-fiber-brand-for-glp-1-users-get-sourcing-right-before-branding",
+      "cover": "2c",
+      "at": "2026-07-23T13:56:02.641Z"
+    }
+  ]
+}

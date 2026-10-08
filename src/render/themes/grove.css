@@ -1,0 +1,108 @@
+/* 1c GROVE — warm & human. Pill badges, rounded cards on cream, numbered
+ * circle chips, arch photo slots, seed-dot progress. Rounded contemporary
+ * type, sentence case. */
+
+[data-rmp-theme='grove'] .rmpb-slide { --rmpb-list-gap: 14px; }
+
+/* No rules/frames — air does the separating. */
+[data-rmp-theme='grove'] .rmpb-head { padding-bottom: 36px; }
+[data-rmp-theme='grove'] .rmpb-foot { padding-top: 32px; }
+
+/* Why-it-matters: rounded callout card, rust emblem accent left, label
+ * stacked over body. */
+[data-rmp-theme='grove'] .rmpb-why {
+  background: var(--rmp-callout-bg);
+  border-radius: 36px;
+  padding: 36px 40px;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 28px;
+  row-gap: 10px;
+  align-items: start;
+}
+[data-rmp-theme='grove'] .rmpb-why__emblem { grid-row: 1 / span 2; display: block; padding-top: 4px; }
+[data-rmp-theme='grove'] .rmpb-why__label { grid-column: 2; letter-spacing: 0.16em; }
+[data-rmp-theme='grove'] .rmpb-why__body { grid-column: 2; color: #3b3a2c; font-size: var(--rmp-type-why-size); }
+
+/* Cards: soft near-white rounded surfaces. */
+[data-rmp-theme='grove'] .rmpb-card {
+  background: var(--rmp-card-bg);
+  border-radius: 28px;
+  padding: 18px 32px;
+}
+[data-rmp-theme='grove'] .rmpb-chip {
+  border: none;
+  background: rgba(200, 168, 126, 0.18);
+  color: var(--rmp-why-accent);
+}
+
+/* Payoff/list rows: rounded cards + numbered circle chips. */
+[data-rmp-theme='grove'] .rmpb-listrow {
+  background: var(--rmp-card-bg);
+  border-radius: 28px;
+  padding: 14px 28px;
+  align-items: center;
+  gap: 24px;
+}
+[data-rmp-theme='grove'] .rmpb-listrow__name { font-weight: 500; }
+
+/* Table: rounded container, banded rows, green header. */
+[data-rmp-theme='grove'] .rmpb-table { border-radius: 28px; overflow: hidden; }
+[data-rmp-theme='grove'] .rmpb-table__hcell { background: var(--rmp-green); color: var(--rmp-on-dark); }
+[data-rmp-theme='grove'] .rmpb-table__cell { background: var(--rmp-card-bg); border-top: 2px solid var(--rmp-rule-secondary); }
+
+/* Cover: badge is a tinted tan pill (not outlined). */
+[data-rmp-theme='grove'] .rmpb-cover-badge {
+  border: none;
+  background: rgba(200, 168, 126, 0.18);
+  color: var(--rmp-tan);
+  letter-spacing: 0.14em;
+}
+[data-rmp-theme='grove'] .rmpb-slide--field[data-rmp-cover='2c'] .rmpb-cover-badge,
+[data-rmp-theme='grove'] .rmpb-slide:not(.rmpb-slide--field) .rmpb-cover-badge {
+  background: rgba(201, 123, 74, 0.15);
+  color: var(--rmp-why-accent);
+}
+
+/* Lockup: sentence case, small emblem visible. */
+[data-rmp-theme='grove'] .rmpb-lockup__word {
+  text-transform: none;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  font-size: 32px;
+}
+[data-rmp-theme='grove'] .rmpb-lockup { gap: 16px; }
+
+/* CTA: the terracotta pill button — the one theme where a filled button is
+ * the brand gesture. */
+[data-rmp-theme='grove'] .rmpb-cta-action {
+  background: var(--rmp-rust);
+  color: #fffdf6;
+  border-radius: 999px;
+  padding: 30px 52px;
+  gap: 16px;
+}
+[data-rmp-theme='grove'] .rmpb-cta-action__label {
+  font-family: var(--rmp-font-display);
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #fffdf6;
+}
+[data-rmp-theme='grove'] .rmpb-cta-action__arrow { color: #fffdf6; }
+
+/* Soft tan circle bleeding off the CTA corner (decor, clipped by the slide). */
+[data-rmp-theme='grove'] .rmpb-grove-circle {
+  position: absolute;
+  left: -140px;
+  bottom: -180px;
+  width: 520px;
+  height: 520px;
+  border-radius: 999px;
+  background: rgba(200, 168, 126, 0.14);
+}
+
+/* Stat voice: display face, green. */
+[data-rmp-theme='grove'] .rmpb-stat { font-family: var(--rmp-font-display); font-weight: 700; color: var(--rmp-green); }

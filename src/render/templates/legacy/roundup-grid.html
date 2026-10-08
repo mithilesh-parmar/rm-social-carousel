@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="__GOOGLE_FONTS_HREF__" rel="stylesheet">
+<link rel="stylesheet" href="__TOKENS_CSS__">
+<link rel="stylesheet" href="__LAYOUT_CSS__">
+</head>
+<body>
+<section class="rmp-slide rmp-slide--pad">
+  <div class="rmp-doc-bar" style="padding-bottom:16px;margin-bottom:26px;">
+    <div class="rmp-kicker">{{kicker}}</div>
+    <div class="rmp-doc-meta">RM Psyllium · Gujarat, India</div>
+  </div>
+  <h2 class="rmp-h2" style="margin-bottom:32px;">{{headline}}</h2>
+
+  <div style="display:flex;flex-direction:column;gap:18px;flex:1;">
+    {{#each cards}}
+    <div class="rmp-card" style="padding:28px 30px;flex:1;display:flex;flex-direction:column;justify-content:center;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+        <div style="font-family:var(--rmp-font-sans);font-size:26px;font-weight:700;color:var(--rmp-green);">{{name}}</div>
+        <div class="rmp-badge rmp-badge--accentTint">{{tag}}</div>
+      </div>
+      <div class="rmp-card-body">{{body}}</div>
+    </div>
+    {{/each}}
+  </div>
+
+  <div class="rmp-doc-foot" style="padding-top:16px;margin-top:16px;">
+    <div class="rmp-footer-slot rmp-footer-index"></div>
+    <div class="rmp-footer-index">rmpsyllium.com</div>
+  </div>
+</section>
+<script src="__FOOTER_INDEX_JS__"></script>
+</body>
+</html>

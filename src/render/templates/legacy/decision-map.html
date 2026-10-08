@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="__GOOGLE_FONTS_HREF__" rel="stylesheet">
+<link rel="stylesheet" href="__TOKENS_CSS__">
+<link rel="stylesheet" href="__LAYOUT_CSS__">
+</head>
+<body>
+<section class="rmp-slide rmp-slide--pad rmp-slide--space-between">
+  <div class="rmp-doc-bar" style="padding-bottom:16px;">
+    <div class="rmp-kicker">{{kicker}}</div>
+    <div class="rmp-doc-meta">RM Psyllium · Gujarat, India</div>
+  </div>
+
+  <div class="rmp-center-block">
+    <h2 class="rmp-h2" style="margin-bottom:34px;">{{headline}}</h2>
+
+    <!-- Grid, not flex+min-width: min-width only sets a floor, it doesn't
+         force the "need" column to wrap at that width, so longer text just
+         grew the box wider and shifted the arrow/answer sideways on a
+         per-row basis. A true fixed grid-template-columns column can't
+         drift like that regardless of content length — that part stays.
+         need/answer are weight:700, not 600: Inter is a grotesque sans with
+         no stroke-contrast, so 600 reads flat/dull at this size.
+         Distinction between the two columns comes from color
+         (green vs ink), not from a weight difference. -->
+    <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:34px;">
+      {{#each rows}}
+      <div class="rmp-card" style="display:grid;grid-template-columns:240px 32px 1fr;align-items:center;gap:20px;padding:22px 28px;">
+        <div style="font-family:var(--rmp-font-sans);font-size:18px;font-weight:700;color:var(--rmp-green);">{{need}}</div>
+        <div style="font-family:var(--rmp-font-mono);font-size:20px;color:var(--rmp-accent-default);">→</div>
+        <div style="font-family:var(--rmp-font-sans);font-size:23px;font-weight:700;color:var(--rmp-ink);">{{answer}}</div>
+      </div>
+      {{/each}}
+    </div>
+
+    <div class="rmp-action-note" style="display:flex;align-items:center;gap:20px;padding:24px 28px;">
+      <div style="font-family:var(--rmp-font-mono);font-size:24px;font-weight:600;color:var(--rmp-accent-default);">+</div>
+      <div class="rmp-card-body">{{blendNote}}</div>
+    </div>
+  </div>
+
+  <div class="rmp-doc-foot" style="padding-top:16px;">
+    <div class="rmp-footer-slot rmp-footer-index"></div>
+    <div class="rmp-footer-index">rmpsyllium.com</div>
+  </div>
+</section>
+<script src="__FOOTER_INDEX_JS__"></script>
+</body>
+</html>

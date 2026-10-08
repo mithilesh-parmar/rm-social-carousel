@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="__FONTS_CSS__">
+<link rel="stylesheet" href="__TOKENS_CSS__">
+<link rel="stylesheet" href="__BRANDED_CSS__">
+<link rel="stylesheet" href="__THEME_CSS__">
+</head>
+<body data-rmp-theme="__THEME_NAME__">
+<!-- One big stat + headline + body. Interiors are ALWAYS cream in the branded
+     system (handoff non-negotiable), so unlike the legacy spotlight this is a
+     light slide: the stat carries the drama in the theme's stat voice. -->
+<section class="rmpb-slide">
+  <div class="rmpb-frame">
+    <header class="rmpb-head">
+      <div class="rmpb-only-mill rmpb-row rmpb-row--baseline">
+        <div class="rmpb-label">{{kicker}}</div>
+        <div class="rmpb-meta">{{badge}}</div>
+      </div>
+      <div class="rmpb-only-spec rmpb-cellrow">
+        <div class="rmpb-cell rmpb-cell--grow"><span class="rmpb-label">{{kicker}}</span></div>
+        <div class="rmpb-cell"><span class="rmpb-meta">{{badge}}</span></div>
+      </div>
+      <div class="rmpb-only-grove rmpb-row">
+        <div class="rmpb-pill rmpb-pill--tint">{{kicker}}</div>
+        <div class="rmpb-meta">{{badge}}</div>
+      </div>
+    </header>
+
+    <main class="rmpb-main" style="gap:30px;">
+      <div class="rmpb-stat" style="font-size:var(--rmp-type-giant-num-size);">{{statValue}}<span class="rmpb-stat__unit">{{statUnit}}</span></div>
+      <div class="rmpb-meta" style="letter-spacing:0.1em;">{{statCaption}}</div>
+      <h2 class="rmpb-headline" style="margin-top:18px;">{{headline}}</h2>
+      <p class="rmpb-body" style="max-width:880px;">{{body}}</p>
+    </main>
+
+    <footer class="rmpb-foot">
+      <div class="rmpb-only-mill rmpb-row">
+        <div class="rmpb-meta">RM Psyllium · Gujarat, India</div>
+        <div class="rmpb-meta" data-rmp-page-index></div>
+      </div>
+      <div class="rmpb-only-spec rmpb-cellrow">
+        <div class="rmpb-cell rmpb-cell--grow"><span class="rmpb-meta">RM Psyllium · Gujarat, India</span></div>
+        <div class="rmpb-cell"><span class="rmpb-meta" data-rmp-page-index></span></div>
+      </div>
+      <div class="rmpb-only-grove rmpb-row">
+        <div class="rmpb-meta">RM Psyllium · Gujarat, India</div>
+        <div class="rmpb-meta" data-rmp-page-index></div>
+      </div>
+    </footer>
+  </div>
+</section>
+<script src="__CHROME_JS__"></script>
+</body>
+</html>

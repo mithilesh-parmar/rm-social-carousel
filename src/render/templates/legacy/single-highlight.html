@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="__GOOGLE_FONTS_HREF__" rel="stylesheet">
+<link rel="stylesheet" href="__TOKENS_CSS__">
+<link rel="stylesheet" href="__LAYOUT_CSS__">
+</head>
+<body>
+<section class="rmp-slide rmp-slide--pad rmp-slide--dark rmp-slide--space-between">
+  {{{_coverArtTag}}}
+  <div class="rmp-doc-bar rmp-doc-bar--onDark">
+    <div class="rmp-logo rmp-logo--onDark" style="-webkit-mask-image:url('__LOGO_DATA_URI__');mask-image:url('__LOGO_DATA_URI__');"></div>
+    <div class="rmp-kicker rmp-kicker--onDark">{{kicker}}</div>
+  </div>
+
+  <div class="rmp-center-block">
+    <h2 class="rmp-h1 rmp-h1--onDark" style="margin-bottom:30px;">{{headline}}</h2>
+    <!-- The one emphasis moment that gets a genuine italic — gold, behind a
+         gold vertical bar, like a pulled line from a trade document. -->
+    <div style="border-left:3px solid var(--rmp-gold);padding-left:26px;margin-bottom:30px;">
+      <div style="font-family:var(--rmp-font-sans);font-size:32px;font-style:italic;line-height:1.35;color:var(--rmp-gold);">{{statOrQuote}}</div>
+    </div>
+    <p class="rmp-body rmp-body--lg rmp-body--onDark" style="max-width:840px;">{{body}}</p>
+  </div>
+
+  <div class="rmp-doc-foot rmp-doc-foot--onDark">
+    <div class="rmp-footer-index rmp-footer-index--onDark">{{contactLine}}</div>
+    <div class="rmp-pill-cta" style="padding:18px 28px;">
+      <div class="rmp-pill-cta__label">{{ctaLabel}}</div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

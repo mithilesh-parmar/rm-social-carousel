@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="__FONTS_CSS__">
+<link rel="stylesheet" href="__TOKENS_CSS__">
+<link rel="stylesheet" href="__BRANDED_CSS__">
+<link rel="stylesheet" href="__THEME_CSS__">
+</head>
+<body data-rmp-theme="__THEME_NAME__">
+<!-- 4-column comparison. Table language per theme: ledger hairlines (1a),
+     full bordered cells with solid-green headers (1b), rounded banded rows
+     (1c). The highlighted (psyllium) row gets the terracotta tint. -->
+<section class="rmpb-slide">
+  <div class="rmpb-frame">
+    <header class="rmpb-head">
+      <div class="rmpb-only-mill rmpb-row rmpb-row--baseline">
+        <div class="rmpb-label">{{kicker}}</div>
+        <div class="rmpb-meta" data-rmp-page-index></div>
+      </div>
+      <div class="rmpb-only-spec rmpb-cellrow">
+        <div class="rmpb-cell rmpb-cell--grow"><span class="rmpb-label">{{kicker}}</span></div>
+        <div class="rmpb-cell"><span class="rmpb-meta" data-rmp-page-index></span></div>
+      </div>
+      <div class="rmpb-only-grove rmpb-row">
+        <div class="rmpb-pill rmpb-pill--tint">{{kicker}}</div>
+        <div class="rmpb-meta" data-rmp-page-index></div>
+      </div>
+    </header>
+
+    <h2 class="rmpb-headline" style="padding:38px 0 30px;">{{headline}}</h2>
+
+    <div class="rmpb-table">
+      <div class="rmpb-table__hcell">{{columnHeaders.0}}</div>
+      <div class="rmpb-table__hcell">{{columnHeaders.1}}</div>
+      <div class="rmpb-table__hcell">{{columnHeaders.2}}</div>
+      <div class="rmpb-table__hcell">{{columnHeaders.3}}</div>
+      {{#each rows}}
+      <div class="rmpb-table__row {{_hlClass}}" style="display:contents;">
+        <div class="rmpb-table__cell rmpb-table__cell--name">{{fiber}}</div>
+        <div class="rmpb-table__cell">{{ferm}}</div>
+        <div class="rmpb-table__cell">{{visc}}</div>
+        <div class="rmpb-table__cell">{{fit}}</div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+<script src="__CHROME_JS__"></script>
+</body>
+</html>

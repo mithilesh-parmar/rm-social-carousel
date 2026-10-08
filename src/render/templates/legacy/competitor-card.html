@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="__GOOGLE_FONTS_HREF__" rel="stylesheet">
+<link rel="stylesheet" href="__TOKENS_CSS__">
+<link rel="stylesheet" href="__LAYOUT_CSS__">
+</head>
+<body>
+<section class="rmp-slide rmp-slide--pad rmp-slide--space-between">
+  <div class="rmp-doc-bar" style="padding-bottom:16px;">
+    <div class="rmp-kicker">{{kicker}}</div>
+    <div class="rmp-doc-meta">RM Psyllium · Gujarat, India</div>
+  </div>
+
+  <div class="rmp-center-block">
+    <h2 class="rmp-h2" style="margin-bottom:26px;">{{headline}}</h2>
+
+    <!-- Spec-badge tags (grade/standard/application chips from the design
+         system's badge language) — rectangular, mono, quiet. -->
+    <div style="display:flex;gap:12px;margin-bottom:32px;flex-wrap:wrap;">
+      {{#each pillTags}}
+      <div style="font-family:var(--rmp-font-mono);font-size:14px;font-weight:600;letter-spacing:0.06em;color:var(--rmp-green);background:var(--rmp-card-bg);border:1px solid var(--rmp-card-border);border-radius:var(--rmp-radius-card-sm);padding:10px 16px;">{{.}}</div>
+      {{/each}}
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:8px;">
+      {{#each bulletCards}}
+      <div class="rmp-card" style="display:flex;gap:18px;align-items:flex-start;padding:24px 26px;">
+        <div style="width:9px;height:9px;border-radius:2px;background:var(--rmp-accent-default);margin-top:9px;flex-shrink:0;"></div>
+        <div class="rmp-card-body">{{.}}</div>
+      </div>
+      {{/each}}
+    </div>
+    <!-- Best-fit verdict gets the gold vertical bar — the one "document
+         seal" moment on this slide. Same 20px size as the bullets, weight
+         600 for emphasis without adding to the "everything is bold" feel. -->
+    <div style="display:flex;gap:20px;margin-top:26px;max-width:880px;">
+      <div style="width:3px;background:var(--rmp-gold);flex-shrink:0;border-radius:2px;"></div>
+      <p style="font-family:var(--rmp-font-sans);font-size:20px;font-weight:600;color:var(--rmp-green);line-height:1.5;margin:0;">{{bestFit}}</p>
+    </div>
+  </div>
+
+  <div class="rmp-doc-foot" style="padding-top:16px;">
+    <div class="rmp-footer-slot rmp-footer-index"></div>
+    <div class="rmp-footer-index">rmpsyllium.com</div>
+  </div>
+</section>
+<script src="__FOOTER_INDEX_JS__"></script>
+</body>
+</html>

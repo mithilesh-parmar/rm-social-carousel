@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "topic": "The QA Audit Checklist for Bulk Psyllium Sourcing",
+    "pillar": "technical-qa-formulation",
+    "accentColor": "#C1633A"
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "kicker": "QA audit · 2026",
+      "badge": "Buyer guide",
+      "headline": "The QA audit checklist for bulk psyllium sourcing",
+      "subhead": "5 parameters your supplier must prove before you sign.",
+      "swipeCue": "Swipe for the checklist →"
+    },
+    {
+      "type": "stat-callout",
+      "kicker": "01 / MESH SIZE",
+      "headline": "Particle size distribution",
+      "body": "Mesh size sets hydration speed and viscosity behaviour during processing. 40 mesh: slow, high-viscosity gel. 100 mesh: near-instant hydration, capsule-fill grade.",
+      "actionLabel": "QA action",
+      "actionBody": "Ask for a lot-specific sieve test in the COA."
+    },
+    {
+      "type": "stat-callout",
+      "kicker": "02 / SWELLING VOLUME",
+      "headline": "Swelling volume dynamics",
+      "body": "The pharmacopeial swell-volume test is the standard indicator of water-binding capacity. Poor separation or excess milling heat lowers swell volume versus the monograph range.",
+      "actionLabel": "QA action",
+      "actionBody": "Insist on the USP/EP swelling-volume method, not a visual estimate."
+    },
+    {
+      "type": "stat-callout",
+      "kicker": "03 / MOISTURE",
+      "headline": "Moisture control under 10%",
+      "body": "Psyllium absorbs moisture readily; above 10% in transit, mould and microbial risk rise. Dry-air processing plus export bags with a food-grade inner liner protect the lot in transit.",
+      "actionLabel": "QA action",
+      "actionBody": "Check lot-specific moisture value dated at or after packing."
+    },
+    {
+      "type": "stat-callout",
+      "kicker": "04 / TOTAL ASH",
+      "headline": "Total ash limits",
+      "body": "Ash is the mineral residue left after combustion — a proxy for sand and soil contamination. Commercial food grade sits under 4.0%; high-purity USP grade under 3.0%.",
+      "actionLabel": "QA action",
+      "actionBody": "Ask how the mill pre-cleans and de-stones raw seed."
+    },
+    {
+      "type": "stat-callout",
+      "kicker": "05 / EXPORT PACK",
+      "headline": "The pre-shipment document pack",
+      "body": "Ask any supplier for these four documents before the container leaves port: lot-specific COA, phytosanitary certificate, fumigation certificate, certificate of origin.",
+      "actionLabel": "QA action",
+      "actionBody": "Review draft copies before dispatch, not after."
+    },
+    {
+      "type": "cta",
+      "headline": "Sourcing de-risked, direct from Siddhpur",
+      "body": "Lot-specific COA support, sample-first from 100 g, no MOQ wall for growth brands.",
+      "ctaLabel": "Request a Free Sample →",
+      "contactLine": "export@rmpsyllium.com · Siddhpur, Gujarat, India"
+    }
+  ],
+  "caption": {
+    "primaryText": "Five things a serious psyllium supplier should be able to prove before you sign: mesh size control, swelling volume against the pharmacopeial standard, moisture under 10% for transit, total ash under spec, and a complete pre-shipment document pack. Ask for the lot-specific COA before you commit, not after the container ships. RM Psyllium supports 100 g samples and COA review before any order — reach us at export@rmpsyllium.com.",
+    "hashtags": ["#psyllium", "#B2Bsourcing", "#nutraceutical", "#QualityAssurance", "#supplychain"]
+  }
+}

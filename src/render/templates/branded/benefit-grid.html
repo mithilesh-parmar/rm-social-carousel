@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="__FONTS_CSS__">
+<link rel="stylesheet" href="__TOKENS_CSS__">
+<link rel="stylesheet" href="__BRANDED_CSS__">
+<link rel="stylesheet" href="__THEME_CSS__">
+</head>
+<body data-rmp-theme="__THEME_NAME__">
+<!-- 2-column icon+label grid (Tabler line icons tinted via CSS color). -->
+<section class="rmpb-slide">
+  <div class="rmpb-frame">
+    <header class="rmpb-head">
+      <div class="rmpb-only-mill rmpb-row rmpb-row--baseline">
+        <div class="rmpb-label">{{kicker}}</div>
+        <div class="rmpb-meta" data-rmp-page-index></div>
+      </div>
+      <div class="rmpb-only-spec rmpb-cellrow">
+        <div class="rmpb-cell rmpb-cell--grow"><span class="rmpb-label">{{kicker}}</span></div>
+        <div class="rmpb-cell"><span class="rmpb-meta" data-rmp-page-index></span></div>
+      </div>
+      <div class="rmpb-only-grove rmpb-row">
+        <div class="rmpb-pill rmpb-pill--tint">{{kicker}}</div>
+        <div class="rmpb-meta" data-rmp-page-index></div>
+      </div>
+    </header>
+
+    <h2 class="rmpb-headline" style="padding:38px 0 10px;">{{headline}}</h2>
+
+    <div class="rmpb-benefits">
+      {{#each items}}
+      <div class="rmpb-benefit">
+        <div class="rmpb-benefit__icon">{{{iconSvg}}}</div>
+        <div class="rmpb-benefit__label">{{label}}</div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+<script src="__CHROME_JS__"></script>
+</body>
+</html>

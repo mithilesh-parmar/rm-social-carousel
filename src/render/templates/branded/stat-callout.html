@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="__FONTS_CSS__">
+<link rel="stylesheet" href="__TOKENS_CSS__">
+<link rel="stylesheet" href="__BRANDED_CSS__">
+<link rel="stylesheet" href="__THEME_CSS__">
+</head>
+<body data-rmp-theme="__THEME_NAME__">
+<!-- Single fact/checklist item + one action callout, on cream (interiors are
+     always cream). The action note reuses the why-strip vocabulary so every
+     theme styles it its own way. -->
+<section class="rmpb-slide">
+  <div class="rmpb-frame">
+    <header class="rmpb-head">
+      <div class="rmpb-only-mill rmpb-row rmpb-row--baseline">
+        <div class="rmpb-label">{{kicker}}</div>
+        <div class="rmpb-meta" data-rmp-page-index></div>
+      </div>
+      <div class="rmpb-only-spec rmpb-cellrow">
+        <div class="rmpb-cell rmpb-cell--grow"><span class="rmpb-label">{{kicker}}</span></div>
+        <div class="rmpb-cell"><span class="rmpb-meta" data-rmp-page-index></span></div>
+      </div>
+      <div class="rmpb-only-grove rmpb-row">
+        <div class="rmpb-pill rmpb-pill--tint">{{kicker}}</div>
+        <div class="rmpb-meta" data-rmp-page-index></div>
+      </div>
+    </header>
+
+    <main class="rmpb-main" style="gap:36px;">
+      <h2 class="rmpb-display">{{headline}}</h2>
+      <p class="rmpb-body" style="max-width:880px;">{{body}}</p>
+    </main>
+
+    <footer class="rmpb-why">
+      <span class="rmpb-why__emblem rmpb-only-grove">{{{_emblemRustTag}}}</span>
+      <div class="rmpb-why__label">{{actionLabel}}</div>
+      <div class="rmpb-why__body">{{actionBody}}</div>
+    </footer>
+  </div>
+</section>
+<script src="__CHROME_JS__"></script>
+</body>
+</html>

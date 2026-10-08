@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "topic": "Overflow stress test",
+    "pillar": "Technical Authority",
+    "accentColor": "#C1633A"
+  },
+  "slides": [
+    {
+      "type": "verdict-list",
+      "kicker": "Stress test",
+      "headline": "Five rows at the maximum allowed rule length okay",
+      "subhead": "Every rule below sits at the schema's hard maxLength of fifty-six characters, and this subhead runs to 120 exactly.",
+      "rows": [
+        { "num": "01", "name": "Psyllium Husk Fiber Grade Option", "rule": "Best gel-former for regularity and cholesterol work." },
+        { "num": "02", "name": "Inulin / FOS Prebiotic Options", "rule": "Best prebiotic story when sweetness masking is wanted." },
+        { "num": "03", "name": "Chicory Root Fiber Clean Label", "rule": "Best clean-label prebiotic for bakery at moderate dose." },
+        { "num": "04", "name": "Oat Beta-Glucan Viscous Fibers", "rule": "Best paired viscous fiber for heart-health claim paths." },
+        { "num": "05", "name": "Resistant Starch Slow Ferments", "rule": "Best slow, steady fermentation for microbiome formulas." }
+      ]
+    },
+    {
+      "type": "decision-map",
+      "kicker": "Stress test",
+      "headline": "Five rows at the maximum allowed need/answer length",
+      "rows": [
+        { "need": "Need a gel-forming texture for bulking?xxx", "answer": "Psyllium husk gel mechanism" },
+        { "need": "Need a recognized heart-health claim path?x", "answer": "Psyllium FDA/EFSA category" },
+        { "need": "Need a prebiotic angle, mild fermentation?x", "answer": "Inulin or chicory root fbr" },
+        { "need": "Need higher daily doses without GI issues?x", "answer": "Psyllium low-fermentation" },
+        { "need": "Need both prebiotic and gel-forming bulk?xx", "answer": "Blend psyllium + inulin" }
+      ],
+      "blendNote": "Many finished brands blend psyllium with a fermentable prebiotic fiber to combine mechanisms in one formula, tuned per target texture and tolerance profile for the buyer's specific application and dose."
+    },
+    {
+      "type": "cta",
+      "headline": "Stress test closer",
+      "body": "Confirming no overflow at maximum field lengths.",
+      "ctaLabel": "Request a Free Sample →",
+      "contactLine": "export@rmpsyllium.com · Siddhpur, Gujarat, India"
+    }
+  ],
+  "caption": {
+    "primaryText": "Internal stress-test fixture for layout overflow regression testing — not real content.",
+    "hashtags": ["#test", "#internal", "#qa"]
+  }
+}

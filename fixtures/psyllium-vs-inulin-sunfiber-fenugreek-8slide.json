@@ -1,0 +1,183 @@
+{
+  "meta": {
+    "topic": "Psyllium vs Inulin, Sunfiber (PHGG), Fenugreek & Acacia",
+    "pillar": "technical-qa-formulation",
+    "accentColor": "#C1633A"
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "kicker": "Fiber comparison · 2026",
+      "badge": "Buyer guide",
+      "headline": "Psyllium vs. Sunfiber vs. Inulin",
+      "subhead": "Which fiber is best for your product? A buyer-focused comparison of gel, bulk, and prebiotic fibers for supplements, drinks, and bakery.",
+      "swipeCue": "Swipe for the comparison →"
+    },
+    {
+      "type": "verdict-list",
+      "kicker": "The quick verdict",
+      "headline": "Choose by what the product needs to do.",
+      "subhead": "Five common fibers, five different jobs. Here is the one-line rule for each.",
+      "rows": [
+        {
+          "num": "01",
+          "name": "Psyllium husk",
+          "rule": "Gel, bulk, water binding, or a health claim — our lane."
+        },
+        {
+          "num": "02",
+          "name": "Sunfiber / PHGG",
+          "rule": "Clear, gentle, low-thickening fiber for beverages."
+        },
+        {
+          "num": "03",
+          "name": "Inulin / FOS",
+          "rule": "Prebiotic story where the dose stays tolerance-managed."
+        },
+        {
+          "num": "04",
+          "name": "Fenugreek",
+          "rule": "Viscous fiber with a metabolic story, if flavor allows."
+        },
+        {
+          "num": "05",
+          "name": "Acacia",
+          "rule": "Gentle soluble fiber where low gas beats gel strength."
+        }
+      ]
+    },
+    {
+      "type": "comparison-table",
+      "kicker": "At a glance",
+      "headline": "Five fibers, five jobs.",
+      "columnHeaders": [
+        "Fiber",
+        "Ferment.",
+        "Viscosity",
+        "Best fit"
+      ],
+      "rows": [
+        {
+          "fiber": "Psyllium",
+          "ferm": "Low",
+          "visc": "High",
+          "fit": "Cholesterol, blood sugar, regularity — daily fiber with a health claim",
+          "highlight": true
+        },
+        {
+          "fiber": "Inulin / FOS",
+          "ferm": "High",
+          "visc": "Low",
+          "fit": "Prebiotic, gut-microbiome support; easy food fortification",
+          "highlight": false
+        },
+        {
+          "fiber": "Sunfiber / PHGG",
+          "ferm": "Moderate",
+          "visc": "Low",
+          "fit": "Clear-mixing prebiotic for beverages; well tolerated",
+          "highlight": false
+        },
+        {
+          "fiber": "Fenugreek",
+          "ferm": "Low–moderate",
+          "visc": "High",
+          "fit": "Appetite & blood-sugar interest; viscous alternative",
+          "highlight": false
+        },
+        {
+          "fiber": "Acacia",
+          "ferm": "Moderate",
+          "visc": "Low",
+          "fit": "Very gentle, low-gas prebiotic for sensitive guts",
+          "highlight": false
+        }
+      ]
+    },
+    {
+      "type": "spotlight",
+      "kicker": "Spotlight · Psyllium husk",
+      "badge": "What we manufacture",
+      "statValue": "7g",
+      "statUnit": "/day",
+      "statCaption": "The FDA-recognized soluble fiber intake level associated with the authorized coronary-heart-disease risk-reduction claim.",
+      "headline": "Gel-forming, water-binding, barely fermented.",
+      "body": "A fit for cholesterol, blood-sugar, and regularity products that want gel, bulk, structure, and category access to a recognized health claim — the finished-brand owns the claim language."
+    },
+    {
+      "type": "competitor-card",
+      "kicker": "How it compares · Sunfiber / PHGG",
+      "headline": "The clear, low-thickening prebiotic.",
+      "pillTags": [
+        "Fermentability: Moderate",
+        "Viscosity: Low",
+        "FODMAP: Low"
+      ],
+      "bulletCards": [
+        "Mixes invisibly — tasteless, no grit, no viscosity change in beverages.",
+        "Low-FODMAP, gentle, slow-fermenting — well tolerated.",
+        "No gel — so no cholesterol-type health claim."
+      ],
+      "bestFit": "Best fit: ready-to-drink beverages and gentle daily-fiber products where mixability beats gel."
+    },
+    {
+      "type": "roundup-grid",
+      "kicker": "The rest of the field",
+      "headline": "Inulin/FOS, fenugreek, and acacia.",
+      "cards": [
+        {
+          "name": "Inulin / FOS",
+          "tag": "High ferment.",
+          "body": "Strongest prebiotic story, nearly tasteless — but highly fermentable, so gas and bloating are common at higher doses."
+        },
+        {
+          "name": "Fenugreek fiber",
+          "tag": "High viscosity",
+          "body": "Viscous, like psyllium, with an appetite/metabolic story — but a maple-like odor and legume-allergen labeling to manage."
+        },
+        {
+          "name": "Acacia (gum arabic)",
+          "tag": "Low gas",
+          "body": "Gentle, low-gas, dissolves clear — but very low viscosity, so no gel benefit and a higher dose is needed."
+        }
+      ]
+    },
+    {
+      "type": "decision-map",
+      "kicker": "Formulation tip",
+      "headline": "Work backwards from your claim.",
+      "rows": [
+        {
+          "need": "Heart health / daily fiber",
+          "answer": "Psyllium"
+        },
+        {
+          "need": "Microbiome / prebiotic",
+          "answer": "Inulin / FOS or acacia"
+        },
+        {
+          "need": "Clean, easy-drinking beverage",
+          "answer": "Sunfiber / PHGG"
+        }
+      ],
+      "blendNote": "Many products blend: psyllium for gel and claim, paired with a gentler prebiotic for microbiome support and tolerance. Always bench-test the blend."
+    },
+    {
+      "type": "cta",
+      "headline": "Ready to put psyllium to the test in your product?",
+      "body": "Share your grade, mesh, and destination — we respond within 48 hours with a 1 kg psyllium sample and COA review.",
+      "ctaLabel": "Request a Free Sample →",
+      "contactLine": "export@rmpsyllium.com · Siddhpur, Gujarat, India"
+    }
+  ],
+  "caption": {
+    "primaryText": "Psyllium, Sunfiber (PHGG), inulin/FOS, fenugreek, and acacia are not interchangeable — each does a different job by function: gel-forming vs. prebiotic vs. low-viscosity mixability. Psyllium is the only one of the five carrying an FDA-recognized soluble fiber heart-health claim pedigree that a finished brand can build on. Choosing the right fiber starts with the claim or texture you're formulating for. RM Psyllium supports sample review and COA discussion before any order — export@rmpsyllium.com.",
+    "hashtags": [
+      "#psyllium",
+      "#fibersupplement",
+      "#nutraceutical",
+      "#formulation",
+      "#B2Bsourcing"
+    ]
+  }
+}

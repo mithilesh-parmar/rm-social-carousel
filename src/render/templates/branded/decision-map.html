@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="__FONTS_CSS__">
+<link rel="stylesheet" href="__TOKENS_CSS__">
+<link rel="stylesheet" href="__BRANDED_CSS__">
+<link rel="stylesheet" href="__THEME_CSS__">
+</head>
+<body data-rmp-theme="__THEME_NAME__">
+<!-- Need -> answer mapping + one closing tip (why-strip voice). -->
+<section class="rmpb-slide">
+  <div class="rmpb-frame">
+    <header class="rmpb-head">
+      <div class="rmpb-only-mill rmpb-row rmpb-row--baseline">
+        <div class="rmpb-label">{{kicker}}</div>
+        <div class="rmpb-meta" data-rmp-page-index></div>
+      </div>
+      <div class="rmpb-only-spec rmpb-cellrow">
+        <div class="rmpb-cell rmpb-cell--grow"><span class="rmpb-label">{{kicker}}</span></div>
+        <div class="rmpb-cell"><span class="rmpb-meta" data-rmp-page-index></span></div>
+      </div>
+      <div class="rmpb-only-grove rmpb-row">
+        <div class="rmpb-pill rmpb-pill--tint">{{kicker}}</div>
+        <div class="rmpb-meta" data-rmp-page-index></div>
+      </div>
+    </header>
+
+    <h2 class="rmpb-headline" style="padding:28px 0 24px;">{{headline}}</h2>
+
+    <div style="display:flex;flex-direction:column;gap:var(--rmpb-list-gap,0px);flex:1;min-height:0;justify-content:flex-start;margin-bottom:28px;">
+      {{#each rows}}
+      <div class="rmpb-card" style="display:grid;grid-template-columns:400px 56px 1fr;align-items:center;gap:24px;">
+        <div class="rmpb-body" style="font-weight:600;color:var(--rmp-green);font-size:28px;">{{need}}</div>
+        <div style="color:var(--rmp-terracotta);font-size:34px;line-height:1;">&rarr;</div>
+        <div class="rmpb-listrow__name" style="font-size:30px;">{{answer}}</div>
+      </div>
+      {{/each}}
+    </div>
+
+    <footer class="rmpb-why">
+      <span class="rmpb-why__emblem rmpb-only-grove">{{{_emblemRustTag}}}</span>
+      <div class="rmpb-why__label">Blend tip</div>
+      <div class="rmpb-why__body">{{blendNote}}</div>
+    </footer>
+  </div>
+</section>
+<script src="__CHROME_JS__"></script>
+</body>
+</html>

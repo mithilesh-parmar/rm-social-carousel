@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="__FONTS_CSS__">
+<link rel="stylesheet" href="__TOKENS_CSS__">
+<link rel="stylesheet" href="__BRANDED_CSS__">
+<link rel="stylesheet" href="__THEME_CSS__">
+</head>
+<body data-rmp-theme="__THEME_NAME__">
+<!-- Closing slide. Reuses the post's cover-treatment field color (handoff
+     rule: "CTA slides reuse the cover's field color"). The action styling is
+     the theme's voice: underlined link (1a), bordered mono box (1b),
+     terracotta pill (1c). -->
+<section class="rmpb-slide rmpb-slide--field" data-rmp-cover="__COVER_ID__">
+  <div class="rmpb-grove-circle rmpb-only-grove"></div>
+  {{{_ctaEmblemTag}}}
+  <div class="rmpb-frame">
+    <header class="rmpb-head">
+      <div class="rmpb-only-mill rmpb-row rmpb-row--baseline">
+        <span class="rmpb-lockup__word">RM Psyllium</span>
+        <div class="rmpb-meta" data-rmp-page-index></div>
+      </div>
+      <div class="rmpb-only-spec rmpb-cellrow">
+        <div class="rmpb-cell rmpb-cell--grow"><span class="rmpb-label" style="color:var(--rmp-cover-ink);">RM Psyllium · Export desk</span></div>
+        <div class="rmpb-cell"><span class="rmpb-meta" data-rmp-page-index></span></div>
+      </div>
+      <div class="rmpb-only-grove rmpb-row">
+        <div class="rmpb-lockup">
+          {{{_lockupEmblemTag}}}
+          <span class="rmpb-lockup__word">RM Psyllium</span>
+        </div>
+        <div class="rmpb-meta" data-rmp-page-index></div>
+      </div>
+    </header>
+
+    <main class="rmpb-main rmpb-cta-main">
+      <div class="rmpb-only-spec rmpb-label" style="color:var(--rmp-cover-accent);">// Next step</div>
+      <h2 class="rmpb-cta-headline">{{{_headlineHtml}}}</h2>
+      <p class="rmpb-cta-body">{{body}}</p>
+      <div class="rmpb-cta-action">
+        <span class="rmpb-cta-action__label">{{ctaLabel}}</span>
+        <span class="rmpb-cta-action__arrow">&rarr;</span>
+      </div>
+    </main>
+
+    <footer class="rmpb-foot rmpb-row">
+      <div class="rmpb-meta" style="text-transform:none;letter-spacing:0.06em;">{{contactLine}}</div>
+      <div class="rmpb-meta">Direct from mill</div>
+    </footer>
+  </div>
+</section>
+<script src="__CHROME_JS__"></script>
+</body>
+</html>

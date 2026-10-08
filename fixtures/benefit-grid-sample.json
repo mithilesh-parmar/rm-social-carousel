@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "topic": "Why Formulators Reach for Psyllium",
+    "pillar": "Technical Authority",
+    "accentColor": "#C1633A"
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "kicker": "Formulation basics · 2026",
+      "badge": "Buyer guide",
+      "headline": "Why Psyllium Belongs in Your Formulation",
+      "subhead": "Four functional properties that make it the default gel-forming fiber for supplements and bakery.",
+      "swipeCue": "Swipe for the properties →"
+    },
+    {
+      "type": "benefit-grid",
+      "kicker": "The functional case",
+      "headline": "Four properties, one fiber.",
+      "items": [
+        { "icon": "leaf", "label": "100% Natural Soluble Fiber" },
+        { "icon": "droplet", "label": "Gel-Forming Water Binding" },
+        { "icon": "heart", "label": "FDA-Recognized Fiber Category" },
+        { "icon": "scale", "label": "Consistent Bulk & Viscosity" }
+      ]
+    },
+    {
+      "type": "cta",
+      "headline": "Ready to bench-test it?",
+      "body": "Request a free sample and COA review — we respond within 48 hours.",
+      "ctaLabel": "Request a Free Sample →",
+      "contactLine": "export@rmpsyllium.com · Siddhpur, Gujarat, India"
+    }
+  ],
+  "caption": {
+    "primaryText": "Four functional properties explain why psyllium is the default gel-forming fiber for supplement and bakery formulators: natural soluble fiber, gel-forming water binding, an FDA-recognized fiber category, and consistent bulk/viscosity lot to lot. RM Psyllium supports sample review and COA discussion before any order — export@rmpsyllium.com.",
+    "hashtags": ["#psyllium", "#fiberingredient", "#formulation", "#B2Bsourcing"]
+  }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="__FONTS_CSS__">
+<link rel="stylesheet" href="__TOKENS_CSS__">
+<link rel="stylesheet" href="__BRANDED_CSS__">
+<link rel="stylesheet" href="__THEME_CSS__">
+</head>
+<body data-rmp-theme="__THEME_NAME__">
+<!-- One non-psyllium option: headline, spec chips, bullet rows, best-fit
+     verdict (why-strip voice). -->
+<section class="rmpb-slide">
+  <div class="rmpb-frame">
+    <header class="rmpb-head">
+      <div class="rmpb-only-mill rmpb-row rmpb-row--baseline">
+        <div class="rmpb-label">{{kicker}}</div>
+        <div class="rmpb-meta" data-rmp-page-index></div>
+      </div>
+      <div class="rmpb-only-spec rmpb-cellrow">
+        <div class="rmpb-cell rmpb-cell--grow"><span class="rmpb-label">{{kicker}}</span></div>
+        <div class="rmpb-cell"><span class="rmpb-meta" data-rmp-page-index></span></div>
+      </div>
+      <div class="rmpb-only-grove rmpb-row">
+        <div class="rmpb-pill rmpb-pill--tint">{{kicker}}</div>
+        <div class="rmpb-meta" data-rmp-page-index></div>
+      </div>
+    </header>
+
+    <h2 class="rmpb-headline" style="padding:38px 0 26px;">{{headline}}</h2>
+
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:36px;">
+      {{#each pillTags}}
+      <div class="rmpb-chip">{{.}}</div>
+      {{/each}}
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:var(--rmpb-list-gap,0px);flex:1;min-height:0;justify-content:flex-start;">
+      {{#each bulletCards}}
+      <div class="rmpb-card" style="display:flex;gap:24px;align-items:flex-start;">
+        <div class="rmpb-dot"></div>
+        <div class="rmpb-body" style="font-size:var(--rmp-type-list-item-size);">{{.}}</div>
+      </div>
+      {{/each}}
+    </div>
+
+    <footer class="rmpb-why">
+      <span class="rmpb-why__emblem rmpb-only-grove">{{{_emblemRustTag}}}</span>
+      <div class="rmpb-why__label">Best fit</div>
+      <div class="rmpb-why__body">{{bestFit}}</div>
+    </footer>
+  </div>
+</section>
+<script src="__CHROME_JS__"></script>
+</body>
+</html>

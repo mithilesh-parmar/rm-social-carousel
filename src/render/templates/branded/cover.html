@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="__FONTS_CSS__">
+<link rel="stylesheet" href="__TOKENS_CSS__">
+<link rel="stylesheet" href="__BRANDED_CSS__">
+<link rel="stylesheet" href="__THEME_CSS__">
+</head>
+<body data-rmp-theme="__THEME_NAME__">
+<!-- Turn-2 cover composition: lockup / badge / headline+accent / subhead /
+     swipe cue / progress. Colors come from the post's cover treatment
+     (--rmp-cover-*), the display face from the theme — the treatment is a
+     skin, the theme is the voice. Grid-safe: content stays inside the center
+     1:1 crop on portrait so the profile-grid tile reads complete. -->
+<section class="rmpb-slide rmpb-slide--field rmpb-slide--gridsafe" data-rmp-cover="__COVER_ID__">
+  {{{_watermarkTag}}}
+  <div class="rmpb-frame">
+    <header class="rmpb-cover-head rmpb-row" style="position:relative;">
+      <div class="rmpb-lockup">
+        {{{_lockupEmblemTag}}}
+        <span class="rmpb-lockup__word">RM Psyllium</span>
+      </div>
+    </header>
+
+    <main class="rmpb-cover-main">
+      <h1 class="rmpb-cover-headline">{{{_headlineHtml}}}</h1>
+      <p class="rmpb-cover-sub">{{subhead}}</p>
+    </main>
+
+    <footer class="rmpb-cover-foot rmpb-row">
+      <div class="rmpb-cover-cue">{{swipeCue}}</div>
+      <div class="rmpb-progress" data-rmp-progress></div>
+    </footer>
+  </div>
+</section>
+<script src="__CHROME_JS__"></script>
+</body>
+</html>

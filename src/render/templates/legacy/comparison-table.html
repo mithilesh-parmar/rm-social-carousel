@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="__GOOGLE_FONTS_HREF__" rel="stylesheet">
+<link rel="stylesheet" href="__TOKENS_CSS__">
+<link rel="stylesheet" href="__LAYOUT_CSS__">
+</head>
+<body>
+<!-- "Tables are a brand asset for RM Psyllium. Use them confidently." —
+     deep-green header strip, mono column headers, cream row banding, exactly
+     the document-mode table language from the design system. -->
+<section class="rmp-slide rmp-slide--pad-tight">
+  <div class="rmp-doc-bar" style="padding-bottom:14px;margin-bottom:22px;">
+    <div class="rmp-kicker">{{kicker}}</div>
+    <div class="rmp-doc-meta">RM Psyllium · Gujarat, India</div>
+  </div>
+  <h2 class="rmp-h2" style="margin-bottom:28px;">{{headline}}</h2>
+
+  <!-- grid-template-rows: header row hugs its content, the 5 data rows split
+       the remaining height evenly — without this the implicit rows all share
+       equally and the header strip balloons. -->
+  <div style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1.9fr;grid-template-rows:auto;grid-auto-rows:1fr;gap:0;border-radius:var(--rmp-radius-card);overflow:hidden;border:1px solid var(--rmp-card-border);flex:1;">
+    <div style="background:var(--rmp-green);color:var(--rmp-bg);font-family:var(--rmp-font-mono);font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:18px 20px;">{{columnHeaders.0}}</div>
+    <div style="background:var(--rmp-green);color:var(--rmp-bg);font-family:var(--rmp-font-mono);font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:18px 20px;">{{columnHeaders.1}}</div>
+    <div style="background:var(--rmp-green);color:var(--rmp-bg);font-family:var(--rmp-font-mono);font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:18px 20px;">{{columnHeaders.2}}</div>
+    <div style="background:var(--rmp-green);color:var(--rmp-bg);font-family:var(--rmp-font-mono);font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:18px 20px;">{{columnHeaders.3}}</div>
+
+    {{#each rows}}
+    <div style="background:{{rowBg}};font-weight:700;font-size:20px;color:var(--rmp-ink);padding:18px 20px;border-top:1px solid var(--rmp-card-border);">{{fiber}}</div>
+    <div style="background:{{rowBg}};font-family:var(--rmp-font-sans);font-size:18px;color:var(--rmp-ink-secondary);padding:18px 20px;border-top:1px solid var(--rmp-card-border);">{{ferm}}</div>
+    <div style="background:{{rowBg}};font-family:var(--rmp-font-sans);font-size:18px;color:var(--rmp-ink-secondary);padding:18px 20px;border-top:1px solid var(--rmp-card-border);">{{visc}}</div>
+    <div style="background:{{rowBg}};font-family:var(--rmp-font-sans);font-size:17px;line-height:1.4;color:var(--rmp-ink-secondary);padding:18px 20px;border-top:1px solid var(--rmp-card-border);">{{fit}}</div>
+    {{/each}}
+  </div>
+
+  <div class="rmp-doc-foot" style="padding-top:14px;margin-top:16px;">
+    <div class="rmp-footer-slot rmp-footer-index"></div>
+    <div class="rmp-footer-index">rmpsyllium.com</div>
+  </div>
+</section>
+<script src="__FOOTER_INDEX_JS__"></script>
+</body>
+</html>

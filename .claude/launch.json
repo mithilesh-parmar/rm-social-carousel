@@ -1,0 +1,31 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "docdesk",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8931",
+        "-d",
+        "/Users/mithileshparmar/Downloads/RM-Psyllium-Brand-Kit/source-and-build"
+      ],
+      "port": 8931
+    },
+    {
+      "name": "rm-astro",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "--prefix",
+        "/Users/mithileshparmar/Development/sancor_systems/rm_psyllium",
+        "run",
+        "dev",
+        "--",
+        "--port",
+        "4321"
+      ],
+      "port": 4321
+    }
+  ]
+}
