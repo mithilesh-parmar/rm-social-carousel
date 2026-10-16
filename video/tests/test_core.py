@@ -75,5 +75,27 @@ class Text(unittest.TestCase):
         self.assertLess(x['RM'], x['Psyllium'])          # Latin run stays left-to-right
         self.assertGreater(x['من'], x['الهند'])          # Arabic flows right-to-left
 
+class Captions(unittest.TestCase):
+    def _w(self, toks, step=0.3):
+        return [{'w': t, 't0': i * step, 't1': i * step + step - 0.02, 'scene': 0} for i, t in enumerate(toks)]
+
+    def test_cjk_breaks_on_punctuation_and_keeps_terms(self):
+        from rmvideo.timeline import build_caption_groups
+        ws = self._w(['全球', '约', '八成', '的', '洋车', '前子，', '都', '产自', '印度。', 'R', 'M', 'Psyllium.'])
+        g = [''.join(x['w'] for x in grp['words']) for grp in build_caption_groups(ws, [0], 5, cjk=True, lang='zh')]
+        self.assertIn('全球约八成的洋车前子', g)                 # comma = break, stripped; term not split
+        self.assertIn('RM Psyllium.', g)                        # spelled letters rejoin, space kept
+
+    def test_glossary_localized_form(self):
+        src = {'a.say': 'India grows psyllium.'}
+        self.assertEqual(content.check_glossary(src, {'a.say': '印度种植洋车前子。'}, 'zh'), [])
+        self.assertTrue(content.check_glossary(src, {'a.say': '印度种植它。'}, 'zh'))
+
+    def test_ru_no_dangling_preposition(self):
+        from rmvideo.timeline import build_caption_groups
+        ws = self._w(['Почти', 'каждая', 'добавка', 'с', 'клетчаткой', 'в', 'мире'])
+        g = [' '.join(x['w'] for x in grp['words']) for grp in build_caption_groups(ws, [0], 5, lang='ru')]
+        self.assertFalse(any(x.split()[-1] in ('с', 'в') for x in g), g)
+
 if __name__ == '__main__':
     unittest.main()

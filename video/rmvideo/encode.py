@@ -81,6 +81,16 @@ def build_audio(voice_mp3, total, out_wav, music=None, assets=None):
                '-ar', '48000', tmp]
     subprocess.check_call(cmd)
     ln = _loudnorm_args(tmp)
+    m = dict(kv.split('=', 1) for kv in ln.split(':')[1:])
+    if float(m['measured_TP']) - float(m['measured_I']) > 12.0:
+        # very peaky voice (e.g. zh-CN-Yunxi): the true-peak ceiling would stop linear loudnorm short of
+        # -14 LUFS, so tame the peaks first (gentle compression + limiter), then normalise as usual
+        pre = tmp + '.pre.wav'
+        subprocess.check_call(['ffmpeg', '-y', '-v', 'error', '-i', tmp, '-af',
+                               'acompressor=threshold=-22dB:ratio=3:attack=5:release=120:makeup=4dB,'
+                               'alimiter=limit=0.6:attack=3:release=60:level=false', '-ar', '48000', pre])
+        os.replace(pre, tmp)
+        ln = _loudnorm_args(tmp)
     subprocess.check_call(['ffmpeg', '-y', '-v', 'error', '-i', tmp, '-af', ln, '-ar', '48000', out_wav])
     os.remove(tmp)
 

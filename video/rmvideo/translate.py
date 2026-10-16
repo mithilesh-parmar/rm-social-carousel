@@ -73,7 +73,7 @@ def translate(script, lang, force=False, allow_stale=False, log=print):
                    'created': datetime.datetime.now().isoformat(timespec='seconds'),
                    'reviewed': False, 'source': src, 'strings': strings}, p)
         log('  [%s] wrote %s (review it, set "reviewed": true)' % (lang, os.path.relpath(p)))
-    probs = check_glossary(src, strings)
+    probs = check_glossary(src, strings, lang)
     hits = check_rules(strings, lang)
     if probs or hits:
         msg = ''

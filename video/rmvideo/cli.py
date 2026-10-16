@@ -57,7 +57,7 @@ def post_text(loc, ec_url):
     p = loc.get('post') or {}
     parts = [p.get('caption', loc.get('topic', ''))]
     if ec_url: parts.append(ec_url)
-    if p.get('hashtags'): parts.append(' '.join(p['hashtags']))
+    if p.get('hashtags'): parts.append(' '.join(h for h in p['hashtags'] if str(h).strip()))
     return '\n\n'.join(x for x in parts if x) + '\n'
 
 def build_one(script, lang, args, log):

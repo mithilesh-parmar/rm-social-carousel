@@ -1,5 +1,6 @@
 """Timeline: the localised script + tts timings resolved into absolute beat windows,
 cue times and caption groups. Styles render from this object only."""
+from .config import load_yaml
 from .content import glossary_terms, scene_beats
 from .text import measure
 
@@ -72,7 +73,8 @@ class Timeline:
                                 tagline_t=so.get('name_t1', start + 1.2),
                                 tagline=(script.get('signoff') or {}).get('tagline'),
                                 brand=(script.get('signoff') or {}).get('name', 'RM Psyllium'))
-        self.captions = build_caption_groups(self.words, [s['t0'] for s in self.scenes], self.total, self.cjk)
+        self.captions = build_caption_groups(self.words, [s['t0'] for s in self.scenes], self.total, self.cjk,
+                                             lang=self.code)
 
     def beat_at(self, t):
         b = self.beats[0]
@@ -89,25 +91,115 @@ class Timeline:
     def ui(self, key, default=''):
         return self.lang.get('ui', {}).get(key, default)
 
-def build_caption_groups(words, scene_starts, total, cjk=False, max_words=3, max_w=860, size=58):
+# words a caption group should not end on (they belong with the next word)
+NOBREAK_AFTER = {
+    'ru': {'в', 'во', 'и', 'с', 'со', 'на', 'о', 'об', 'к', 'ко', 'у', 'по', 'для', 'от', 'из', 'за', 'а', 'но',
+           'не', 'до', 'при', 'без', 'над', 'под', 'что', 'как'},
+}
+CJK_HARD = '，。？！、：；,.?!:;…'
+CJK_BAD_START = set('的中了地得里上们吗呢吧')     # particles/suffixes that belong to the previous chunk
+CJK_BAD_END = set('在和与把被从向为对将约')        # prepositions/conjunctions that lead into the next chunk
+
+def _is_ascii_alnum(ch):
+    return ch.isascii() and ch.isalnum()
+
+def merge_latin_runs(words):
+    """CJK timelines: 'RM' + 'Psyllium' -> one caption word 'RM Psyllium' (shown with its space)"""
+    out = []
+    for w in words:
+        if out and out[-1]['w'][-1:] and _is_ascii_alnum(out[-1]['w'][-1]) and _is_ascii_alnum(w['w'][:1] or ' ') \
+                and out[-1].get('scene') == w.get('scene'):
+            # display letters the voice spelled out ('R','M' of 'RM') rejoin without a space
+            sep = '' if len(out[-1]['w'].split(' ')[-1]) == 1 and len(w['w']) == 1 else ' '
+            out[-1] = dict(out[-1], w=out[-1]['w'] + sep + w['w'], t1=w['t1'])
+        else:
+            out.append(dict(w))
+    return out
+
+def cjk_keep_terms():
+    try:
+        return [t for t in (load_yaml('glossary.yaml').get('cjk_keep') or []) if t]
+    except Exception:
+        return []
+
+def _cjk_split(phrase, max_chars):
+    """split one punctuation-delimited phrase (list of words) into balanced chunks at word
+    boundaries, never inside a protected term (glossary cjk_keep) and avoiding particles"""
+    text = ''.join(w['w'] for w in phrase)
+    n = len(text)
+    if n <= max_chars or len(phrase) < 2:
+        return [phrase]
+    k = -(-n // max_chars)
+    pos, acc = [], 0
+    for w in phrase[:-1]:
+        acc += len(w['w']); pos.append(acc)          # candidate cut after word i
+    bad = set()
+    for term in cjk_keep_terms():
+        st = text.find(term)
+        while st >= 0:
+            bad.update(range(st + 1, st + len(term)))
+            st = text.find(term, st + 1)
+    def cost(p):
+        c = 0.0
+        if p in bad: c += 100
+        if text[p:p + 1] in CJK_BAD_START: c += 6
+        if text[p - 1:p] in CJK_BAD_END: c += 6
+        return c
+    best = None
+    import itertools
+    idx = list(range(len(pos)))
+    for combo in itertools.combinations(idx, k - 1):
+        cuts = [pos[i] for i in combo]
+        edges = [0] + cuts + [n]
+        lens = [b - a for a, b in zip(edges, edges[1:])]
+        if max(lens) > max_chars + 3: continue
+        sc = sum(cost(c) for c in cuts) + sum((l - n / k) ** 2 for l in lens) * 0.3
+        if best is None or sc < best[0]: best = (sc, combo)
+    if best is None:
+        return _cjk_split(phrase, max_chars + 2)
+    out, last = [], 0
+    for i in best[1]:
+        out.append(phrase[last:i + 1]); last = i + 1
+    out.append(phrase[last:])
+    return out
+
+def build_caption_groups(words, scene_starts, total, cjk=False, max_words=3, max_w=860, size=58, lang=None):
     """-> [{t0, t1, words:[{w,t0,t1}]}]"""
     phrases = [g.split() for g in glossary_terms() if ' ' in g]
     groups, cur = [], []
-    maxw = 7 if cjk else max_words
-    for i, w in enumerate(words):
-        if cur:
-            prev = words[i - 1]
-            gap = w['t0'] - prev['t1']
-            newscene = any(prev['t0'] < s <= w['t0'] + 1e-6 for s in scene_starts)
-            sep = '' if cjk else ' '
-            width = measure(sep.join(x['w'] for x in cur + [w]), 'sans', size, 'Bold')
-            nchars = sum(len(x['w']) for x in cur + [w])
-            keep = any(len(p) > 1 and cur[-1]['w'].strip('.,') == p[0] and w['w'].strip('.,!?') == p[1] for p in phrases)
-            limit = len(cur) >= maxw or (cjk and nchars > 12)
-            if not keep and (limit or gap > 0.28 or newscene or width > max_w or prev['w'][-1:] in '.?!。？！'):
-                groups.append(cur); cur = []
-        cur.append(w)
-    if cur: groups.append(cur)
+    if cjk:
+        words = merge_latin_runs(words)
+        for i, w in enumerate(words):
+            if cur:
+                prev = words[i - 1]
+                gap = w['t0'] - prev['t1']
+                newscene = any(prev['t0'] < s <= w['t0'] + 1e-6 for s in scene_starts)
+                if gap > 0.28 or newscene or prev['w'][-1:] in CJK_HARD or prev.get('signoff') != w.get('signoff'):
+                    groups.append(cur); cur = []
+            cur.append(w)
+        if cur: groups.append(cur)
+        groups = [c for g in groups for c in _cjk_split(g, 13)]
+        # subtitle convention: no trailing ，。、：； (keep ？！)
+        groups = [g[:-1] + [dict(g[-1], w=g[-1]['w'].rstrip('，。、：；,;:') or g[-1]['w'])] for g in groups]
+    else:
+        nob = NOBREAK_AFTER.get(lang or '', set())
+        for i, w in enumerate(words):
+            if cur:
+                prev = words[i - 1]
+                gap = w['t0'] - prev['t1']
+                newscene = any(prev['t0'] < s <= w['t0'] + 1e-6 for s in scene_starts)
+                width = measure(' '.join(x['w'] for x in cur + [w]), 'sans', size, 'Bold')
+                keep = any(len(p) > 1 and cur[-1]['w'].strip('.,') == p[0] and w['w'].strip('.,!?') == p[1] for p in phrases)
+                soft = cur[-1]['w'].lower().strip('.,!?') in nob and width <= max_w and len(cur) <= max_words
+                limit = len(cur) >= max_words
+                if not keep and ((not soft and (limit or width > max_w)) or gap > 0.28 or newscene
+                                 or prev['w'][-1:] in '.?!'):
+                    carry = []
+                    if len(cur) > 1 and cur[-1]['w'].lower().strip('.,!?') in nob and gap <= 0.28 and not newscene:
+                        carry = [cur.pop()]          # a dangling preposition/conjunction moves to the next group
+                    groups.append(cur); cur = carry
+            cur.append(w)
+        if cur: groups.append(cur)
     out = []
     for gi, g in enumerate(groups):
         t0 = g[0]['t0'] - 0.05

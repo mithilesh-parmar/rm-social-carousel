@@ -12,6 +12,7 @@ slug: india-psyllium-80
 topic: "Why almost all the world's psyllium comes from one corner of India"
 style: process            # process = annotated factory footage | flat = flat vector kinetic
 languages: [en, hi]
+rates: {ru: "+10%"}     # Dmitry reads ~25% longer than English; keeps the ru cut under ~65 s
 
 # The endcard (CTA + url + logo) and the spoken brand sign-off
 # ("RM Psyllium. Straight from the source.") come from video/data/brand.yaml and are on

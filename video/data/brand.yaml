@@ -3,6 +3,9 @@
 brand:
   name: "RM Psyllium"            # always spoken by name, never translated
   name_spoken: "R M Psyllium"    # how every voice says it (captions show `name`)
+  # same letters, written so a voice reads them natively (Dmitry reads Latin "Psyllium" oddly)
+  name_spoken_by_lang:
+    ru: "Эр Эм Псиллиум"
   url: rmpsyllium.com
   cta: "Sourcing psyllium? | Ask us for a sample."   # endcard CTA (" | " = line break), translated per language
   signoff:

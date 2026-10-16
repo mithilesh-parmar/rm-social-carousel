@@ -129,6 +129,8 @@ def align(spoken, bwords):
         cur = spans[-1][1]
     return spans
 
+CJK_PUNCT = set('，。？！、：；…（）「」《》“”')
+
 def build_words(disp, sp2d, bwords, spans, cjk):
     """display-level caption words [{w, a, b, t0, t1}] (a,b = display char span)"""
     bd = []
@@ -141,7 +143,8 @@ def build_words(disp, sp2d, bwords, spans, cjk):
         for k, (da, db, t0, t1) in enumerate(bd):
             nxt = bd[k + 1][0] if k + 1 < len(bd) else len(disp)
             e = db
-            while e < nxt and e < len(disp) and not disp[e].isalnum() and not is_cjk_char(disp[e]): e += 1
+            # keep trailing punctuation (incl. full-width ，。？！、) with the word: captions break on it
+            while e < nxt and e < len(disp) and not disp[e].isalnum() and (not is_cjk_char(disp[e]) or disp[e] in CJK_PUNCT): e += 1
             if words and da < words[-1]['b']:
                 da = words[-1]['b']
             txt = disp[da:e].strip()
@@ -188,7 +191,8 @@ def run_tts(script, lang, force=False, log=print):
     if so:
         so_disp = '%s.%s%s' % (so['name'], '' if cjk else ' ', so.get('tagline', '')) if so.get('tagline') else so['name'] + '.'
         tag_sp = apply_lexicon(so.get('tagline', ''), lang)[0]
-        so_spoken = '%s.%s%s' % (so['name_spoken'], '' if cjk else ' ', tag_sp) if tag_sp else so['name_spoken'] + '.'
+        name_sp = (so.get('_spoken_by_lang') or {}).get(lang) or so['name_spoken']
+        so_spoken = '%s.%s%s' % (name_sp, '' if cjk else ' ', tag_sp) if tag_sp else name_sp + '.'
     key = hashlib.sha256(json.dumps([spoken, voice, rate, so_spoken, so and so['pause'], 3]).encode()).hexdigest()[:16]
     wd = os.path.join(WORK_DIR, script['slug'], lang)
     os.makedirs(wd, exist_ok=True)
@@ -212,7 +216,7 @@ def run_tts(script, lang, force=False, log=print):
         so_mp3 = os.path.join(wd, 'voice_signoff.mp3')
         sw = synth(so_spoken, voice, rate, so_mp3)
         off = speech_end + so['pause'] - sw[0]['t0']
-        sp_s, s2d, _ = apply_lexicon(so_disp, lang, extra=[(so['name'], so['name_spoken'])])
+        sp_s, s2d, _ = apply_lexicon(so_disp, lang, extra=[(so['name'], name_sp)])
         sw_shift = [dict(b, t0=round(b['t0'] + off, 3), t1=round(b['t1'] + off, 3)) for b in sw]
         so_words = build_words(so_disp, s2d, sw_shift, align(sp_s, sw_shift), cjk)
         subprocess.check_call(['ffmpeg', '-y', '-v', 'error', '-i', main_mp3, '-i', so_mp3, '-filter_complex',

@@ -6,3 +6,10 @@ keep:
   - rmpsyllium.com
   - psyllium
   - Psyllium
+# Accepted native forms of a keep-term per language. The brand (RM Psyllium) and the url
+# are never localised; the crop name reads more naturally in the local script/term.
+localized:
+  psyllium: {zh: ["洋车前子", "车前子"], ru: ["псиллиум"]}
+# CJK caption groups never break inside these (word boundaries from the voice can split them)
+cjk_keep: ["洋车前子", "车前子壳", "车前子", "膳食纤维", "补充剂", "沙质土壤", "凉爽干燥", "少得可怜", "锡德布尔",
+           "古吉拉特邦", "古吉拉特", "拉贾斯坦", "草本出口", "原产地", "两百五十公斤", "源头直供", "索取样品"]

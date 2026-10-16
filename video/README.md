@@ -138,7 +138,9 @@ Configured in `data/brand.yaml`:
   The result is cached in `scripts/translations/<slug>.<lang>.json` with a hash of the English
   source: commit it, review/edit it (set `"reviewed": true`), and renders are reproducible
   without an API key. Changing the English invalidates it (re-translated on the next build).
-* **Glossary** (`data/glossary.yaml`): `RM Psyllium`, `rmpsyllium.com`, `psyllium` stay verbatim.
+* **Glossary** (`data/glossary.yaml`): `RM Psyllium`, `rmpsyllium.com`, `psyllium` stay verbatim
+  (`localized:` lists accepted native forms of a term per language, e.g. psyllium → 洋车前子 / псиллиум;
+  the brand and url never localise). Per-language spoken brand: `name_spoken_by_lang` in `brand.yaml`.
   Translations that drop a term, a cue marker or an emphasis span are rejected and retried.
 * **Content rules** (`data/rules.yaml`) run on the English script and on every translation
   (narration, on-screen copy, post caption, in that language's script). A hit **blocks that
@@ -194,6 +196,9 @@ boundaries whenever they are available.
   may change or rate-limit. Voices cannot take SSML breaks, hence the separately-synthesised sign-off.
 * Footage annotations use fixed source-pixel coordinates per clip; swapping a clip means re-aiming them.
 * Flat style does not use footage except `photos` in the `footage` beat.
-* Arabic/CJK layouts are supported by the engine and unit-tested, but only en and hi have been
-  rendered end-to-end and eyeballed so far.
+* Arabic layouts are supported by the engine and unit-tested but not yet rendered end-to-end;
+  en, hi, zh (Douyin) and ru (VK) have been rendered and eyeballed.
+* CJK captions break on punctuation, then into balanced chunks at the voice's word boundaries;
+  add multi-character terms the voice splits (洋车前子, 膳食纤维…) to `cjk_keep` in `data/glossary.yaml`.
+* Very peaky voices (zh-CN-Yunxi) get a gentle compressor/limiter before loudnorm so they reach −14 LUFS.
 * Region maps need a state-boundary file in the assets folder.

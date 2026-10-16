@@ -52,6 +52,7 @@ def apply_brand(s):
         user = s.get('signoff') if isinstance(s.get('signoff'), dict) else {}
         tag = so.get('tagline', {})
         s['signoff'] = {'name': b['name'], 'name_spoken': b.get('name_spoken', b['name']),
+                        '_spoken_by_lang': dict(b.get('name_spoken_by_lang') or {}),
                         'tagline': user.get('tagline') or tag.get(s.get('source_lang', 'en')) or '',
                         'pause': float(user.get('pause', so.get('pause', 0.4))),
                         '_pinned': {k: v for k, v in tag.items()}}
@@ -163,13 +164,22 @@ def check_rules(strings, lang='en'):
 def glossary_terms():
     return load_yaml('glossary.yaml')['keep']
 
-def check_glossary(src, dst):
-    """terms present in the source line must survive verbatim in the translation"""
+def glossary_localized(lang):
+    """per-language accepted equivalents of a keep-term (e.g. psyllium -> 洋车前子 in zh)"""
+    loc = load_yaml('glossary.yaml').get('localized') or {}
+    return {t.lower(): [x.lower() for x in (v.get(lang) or [])] for t, v in loc.items()} if lang else {}
+
+def check_glossary(src, dst, lang=None):
+    """terms present in the source line must survive verbatim in the translation
+    (or as one of the accepted localized forms for that language, see glossary.yaml `localized`)"""
     probs = []
+    alts = glossary_localized(lang)
     for path, s in src.items():
         d = dst.get(path, '')
         for term in sorted(glossary_terms(), key=len, reverse=True):
             if re.search(r'(?<![\w.])' + re.escape(term) + r'(?![\w])', s):
+                if any(a in d.lower() for a in alts.get(term.lower(), [])):
+                    continue
                 if term not in d and term.lower() not in d.lower():
                     probs.append('%s: glossary term "%s" missing from translation' % (path, term))
         sc = sorted(CUE_RE.findall(s)); dc = sorted(CUE_RE.findall(d))
