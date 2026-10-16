@@ -1,0 +1,8 @@
+# Do-not-translate terms. The translator is told to keep them verbatim (Latin script)
+# and every translation is checked: if a term is in the English line it must appear
+# unchanged in the translated line.
+keep:
+  - RM Psyllium
+  - rmpsyllium.com
+  - psyllium
+  - Psyllium

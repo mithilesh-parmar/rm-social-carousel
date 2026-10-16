@@ -8,10 +8,13 @@
     "node": ">=22.12.0"
   },
   "bin": {
-    "carousel": "./bin/carousel.js"
+    "carousel": "./bin/carousel.js",
+    "video": "./bin/video.js"
   },
   "scripts": {
-    "test": "node --test test/*.test.js"
+    "test": "node --test test/*.test.js",
+    "video": "node bin/video.js",
+    "video:test": "python3 -m unittest discover -s video/tests -v"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.110.0",

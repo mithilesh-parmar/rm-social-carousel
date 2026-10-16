@@ -1,0 +1,14 @@
+# Pronunciation lexicon: what the voice SAYS vs what the captions SHOW.
+# Scripts are written in display form; before TTS each `display` match is replaced by
+# `spoken`, and caption words are mapped back to `display` afterwards.
+#   langs: optional list; omit = every language.  match is case-sensitive, whole-word.
+entries:
+  - {display: "Sidhpur", spoken: "Sidpoor"}    # verified: "Sidpoor" sounds closer than "Sidpur"
+  - {display: "Siddhpur", spoken: "Sidpoor"}
+  - {display: "RM Psyllium", spoken: "R M Psyllium"}   # brand name: same pronunciation in every language
+  - {display: "rmpsyllium.com", spoken: "R M psyllium dot com", langs: [en]}
+  # Hindi/Russian: the crop name stays in Latin on screen (glossary), but these voices
+  # read it more naturally in their own script. (The brand name is never localised.)
+  - {display: "psyllium", spoken: "सिलियम", langs: [hi]}
+  - {display: "Psyllium", spoken: "सिलियम", langs: [hi]}
+  - {display: "psyllium", spoken: "псиллиум", langs: [ru]}

@@ -1,0 +1,43 @@
+# Content rules, checked on the English script AND every translation (on-screen copy,
+# narration and post caption). Any match blocks the build for that language.
+# Patterns are Python regexes, matched case-insensitively.
+rules:
+  - id: no-fssc
+    why: "RM Psyllium does not hold FSSC 22000 - never claim it"
+    patterns: ['FSSC', '22000']
+  - id: no-40-years
+    why: "Never claim 40 years / decades of family experience"
+    patterns:
+      - '\b40\s*\+?\s*(years?|yrs)\b'
+      - 'four decades'
+      - '40\s*(साल|वर्ष)'
+      - 'चालीस\s*(साल|वर्ष)'
+      - '40\s*(лет|года)'
+      - 'сорок\s+лет'
+      - '40\s*(años|jahre|ans|anos|tahun|yıl|yil)'
+      - '40\s*(عام|عاما|سنة)'
+      - '四十年|40\s*年'
+  - id: no-moq
+    why: "Never state a MOQ / minimum order quantity (it keeps changing)"
+    patterns:
+      - '\bMOQ\b'
+      - 'minimum order'
+      - 'न्यूनतम\s*ऑर्डर'
+      - 'минимальн\w*\s+(заказ|парти)'
+      - 'pedido mínimo|cantidad mínima'
+      - 'mindestbestell|mindestmenge'
+      - 'الحد الأدنى للطلب'
+      - '最小起订|起订量|最低订'
+      - 'commande minimum|quantité minimale'
+  - id: no-health-cure
+    why: "No disease cure/treatment claims - psyllium is an ingredient, not a medicine"
+    patterns:
+      - '\b(cures?|cured|curing|heals?|healing|treats?|treatment for|remedy for|prevents?)\b'
+      - '\b(cure|treat|heal|reverse)\s+(diabetes|cholesterol|constipation|ibs|obesity|cancer|disease)'
+      - 'इलाज|ठीक\s*कर|उपचार|रोग\s*मिटा'
+      - 'лечит|излеч|вылеч|исцел'
+      - '\bcura\b|\bcuras\b|\bcuran\b|trata la|tratamiento de'
+      - 'heilt|heilung|behandelt'
+      - 'يعالج|يشفي|علاج'
+      - '治疗|治愈|根治|疗效'
+      - '\bguérit|\btraite\b'

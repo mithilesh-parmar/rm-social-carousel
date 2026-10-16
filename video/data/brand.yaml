@@ -1,0 +1,14 @@
+# Brand defaults applied to every video (standing rule: every video ends with a spoken
+# brand sign-off so the name becomes recognisable).
+brand:
+  name: "RM Psyllium"            # always spoken by name, never translated
+  name_spoken: "R M Psyllium"    # how every voice says it (captions show `name`)
+  url: rmpsyllium.com
+  cta: "Sourcing psyllium? | Ask us for a sample."   # endcard CTA (" | " = line break), translated per language
+  signoff:
+    enabled: true                # a script can opt out with `signoff: false`
+    pause: 0.4                   # seconds of silence before the sign-off
+    # "<name>. <tagline>" is the very last spoken line. The tagline is translated per
+    # language by the translate step; put a language here to pin it by hand.
+    tagline:
+      en: "Straight from the source."
