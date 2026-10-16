@@ -13,12 +13,6 @@ topic: "Why almost all the world's psyllium comes from one corner of India"
 style: process            # process = annotated factory footage | flat = flat vector kinetic
 languages: [en, hi]
 rates: {ru: "+10%"}     # Dmitry reads ~25% longer than English; keeps the ru cut under ~65 s
-# Ducked music bed (path inside the assets folder; assets are never committed).
-# "Dreamer" by Kevin MacLeod (incompetech.com), CC BY 4.0 - the post caption must carry:
-#   Music: "Dreamer" by Kevin MacLeod (incompetech.com), licensed under CC BY 4.0
-#   https://creativecommons.org/licenses/by/4.0/
-# Source: https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamer.mp3
-music: {file: music/dreamer.mp3, volume: 0.18, duck: true}
 
 # The endcard (CTA + url + logo) and the spoken brand sign-off
 # ("RM Psyllium. Straight from the source.") come from video/data/brand.yaml and are on
