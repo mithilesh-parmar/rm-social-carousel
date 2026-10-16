@@ -90,7 +90,9 @@ def mux(segdir, audio_wav, total, out_mp4):
     with open(lst, 'w') as fh:
         for x in segs: fh.write("file '%s'\n" % os.path.join(segdir, x))
     os.makedirs(os.path.dirname(out_mp4), exist_ok=True)
-    tmp = out_mp4 + '.tmp.mp4'
+    # mux on local disk first: the +faststart trailer rewrite is fragile on network filesystems
+    import tempfile
+    tmp = os.path.join(tempfile.gettempdir(), 'rmvideo_%d_%s' % (os.getpid(), os.path.basename(out_mp4)))
     subprocess.check_call(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', lst, '-i', audio_wav,
                            '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k', '-ar', '48000',
                            '-t', '%.3f' % total, '-movflags', '+faststart', tmp])
