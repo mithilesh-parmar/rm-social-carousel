@@ -1,0 +1,207 @@
+# Example explainer: why India grows ~80% of the world's psyllium.
+# Render:  npm run video -- build video/scripts/india-psyllium-80.yaml --langs en,hi
+#
+# Writing rules (see video/README.md):
+#  * `say` is the narration. [[name]] marks a cue: the moment the next word is spoken.
+#    Beats animate on cues, so timing follows the voice in every language.
+#  * Every viewer-facing string (say, headline, label, text, sub, ...) is translated;
+#    numbers, sources, footage refs and coordinates are not.
+#  * Facts must be sourced (stat.source). Never: health-cure claims, FSSC 22000,
+#    "40 years", MOQ - the build refuses them in any language.
+slug: india-psyllium-80
+topic: "Why almost all the world's psyllium comes from one corner of India"
+style: process            # process = annotated factory footage | flat = flat vector kinetic
+languages: [en, hi]
+rates: {ru: "+10%"}     # Dmitry reads ~25% longer than English; keeps the ru cut under ~65 s
+
+# The endcard (CTA + url + logo) and the spoken brand sign-off
+# ("RM Psyllium. Straight from the source.") come from video/data/brand.yaml and are on
+# by default; the endcard rises at the [[end]] cue and the logo pops on the spoken name.
+endcard:
+  sub: "Psyllium husk · powder · seed"
+  place: "Sidhpur, Gujarat, India"
+  hold: 1.2                # seconds the end card holds after the sign-off
+
+post:
+  caption: "Why does most of the world's psyllium come from one dry corner of India? Cool, dry winters, sandy soil and almost no rain at harvest. One tonne of seed gives only about 250 kg of husk. We mill it at the source in Sidhpur, Gujarat."
+  hashtags: ["#psyllium", "#psylliumhusk", "#isabgol", "#fibre", "#Gujarat", "#RMPsyllium"]
+
+scenes:
+  - id: hook
+    say: "Almost every fibre supplement on the planet [[h2]]starts in one dry [[pin]]corner of India."
+    beat:
+      type: hook
+      headline: "Almost every *fibre supplement*…"
+      headline2: "…*starts* here."
+      kicker: "ONE DRY CORNER"
+      pin: {lon: 72.6, lat: 24.6, country: India, label: "one dry corner", title: "India"}
+    footage:
+      - src: src/7798.mp4
+        in: 2.0
+        weight: 2
+        focus: [880, 560]
+        zoom: 1.10
+        pan: [90, 0]
+        annotate:
+          - {type: label, text: "psyllium seed", xy: [330, 820], arrow: [[470, 880], [600, 1080]], when: 0.25}
+      - {src: src/7816.mp4, in: 4.0, weight: 1}
+
+  - id: share
+    say: "India supplies about [[n]]eighty percent of the world's psyllium."
+    beat:
+      type: big_stat
+      value: 80
+      format: "{v}%"
+      label: "of the world's psyllium | comes from India"
+      kicker: "WORLD SUPPLY"
+      map: {highlight: India, label: "India", lon: 79, lat: 22}
+      chart: dots
+    stat: {source: "ICAR, Indian Horticulture (2023)"}
+    footage:
+      - {src: src/3202.mp4, in: 1.0, weight: 2}
+      - {src: src/7741.mp4, in: 0.6, weight: 1.5, focus: [980, 540]}
+
+  - id: export
+    say: "And more than [[n]]ninety percent of what it grows is [[map]]shipped abroad, mostly to the [[us]]US and [[eu]]Europe."
+    beats:
+      - type: big_stat
+        value: 90
+        format: "{v}%+"
+        label: "of India's crop is | shipped abroad"
+        kicker: "SHIPPED ABROAD"
+        chart: bar
+      - type: world_map_arcs
+        start_cue: map
+        headline: "Shipped *abroad*"
+        kicker: "TOP BUYERS"
+        origin: {lon: 75, lat: 21}
+        targets:
+          - {name: USA, label: "USA", lon: -98, lat: 39, cue: us, countries: ["United States of America"]}
+          - {name: Europe, label: "Europe", lon: 10, lat: 50, cue: eu, region: europe}
+    stat: {source: "ICAR; Times of India"}
+    footage:
+      - {src: src/3202.mp4, in: 3.0, weight: 1, focus: [1100, 540], pan: [-120, 0]}
+      - {src: src/7816.mp4, in: 10.0, weight: 1.4}
+
+  - id: why
+    say: "So why here? [[h2]]Because psyllium is picky."
+    beat:
+      type: title
+      headline: "So why here?"
+      headline2: "Psyllium is *picky*."
+      art: plant
+    footage:
+      - {src: src/7835.mp4, in: 1.2, weight: 1, focus: [1400, 540]}
+      - src: src/7750.mp4
+        in: 1.0
+        weight: 1.6
+        focus: [1000, 540]
+        annotate:
+          - {type: circle, at: [1112, 300], r: [150, 75], when: 0.1}
+          - {type: label, text: "colour sorter", xy: [470, 900], arrow: [[470, 830], circle], when: 0.3}
+
+  - id: climate
+    say: "It wants [[c1]]cool, dry winters, [[c2]]sandy soil, and almost [[c3]]no rain at harvest."
+    beat:
+      type: checklist
+      headline: "Psyllium wants:"
+      kicker: "WHAT IT NEEDS"
+      items:
+        - {text: "Cool, dry winters", sub: "A rabi (winter) crop", icon: winter, cue: c1}
+        - {text: "Sandy soil", icon: soil, cue: c2}
+        - {text: "No rain at harvest", icon: norain, cue: c3}
+    footage:
+      - {src: src/7798.mp4, in: 9.0, weight: 1, focus: [1050, 540], pan: [-80, 0]}
+      - {src: src/7723.mp4, in: 0.0, weight: 0.8}
+      - {src: photos/112A7789.jpg, weight: 0.8, focus: [800, 533], pan: [40, 0]}
+
+  - id: region
+    say: "North [[r1]]Gujarat and western [[r2]]Rajasthan fit that almost [[check]]perfectly."
+    beat:
+      type: region_map
+      headline: "The *perfect* fit"
+      kicker: "THE SWEET SPOT"
+      country: India
+      regions:
+        - {name: Gujarat, label: "Gujarat", cue: r1}
+        - {name: Rajasthan, label: "Rajasthan", cue: r2}
+      bbox: [67.0, 19.8, 79.5, 31.2]
+      check: {lon: 75.6, lat: 22.2}
+    footage:
+      - {src: src/7766.mp4, in: 6.0, weight: 1}
+
+  - id: ratio
+    say: "And the valuable part is tiny. [[from]]One tonne of seed gives only about [[to]]two hundred and fifty kilos of husk."
+    beat:
+      type: ratio
+      headline: "The valuable part is *tiny*."
+      kicker: "THE YIELD"
+      from: {value: 1000, unit: "kg", label: "seed"}
+      to: {value: 250, unit: "kg", label: "husk"}
+    stat: {source: "DBT Biotech Kisan Hub"}
+    footage:
+      - src: src/7766.mp4
+        in: 2.0
+        weight: 1
+        focus: [1120, 540]
+        annotate:
+          - {type: circle, at: [1130, 225], r: [250, 125], when: 0.1}
+          - {type: label, text: "destoner", xy: [300, 760], arrow: [[330, 700], circle], when: 0.3}
+      - src: src/7798.mp4
+        in: 14.0
+        weight: 1
+        focus: [800, 600]
+        zoom: 1.35
+        annotate:
+          - {type: label, text: "seed in", xy: [300, 1200], arrow: [[420, 1250], [620, 1360]], when: 0.2}
+      - {src: src/7741.mp4, in: 2.2, weight: 1}
+
+  - id: gel
+    say: "That thin husk [[soak]]soaks up water and turns into [[gel]]gel. That's the [[fibre]]fibre in your supplement."
+    beat:
+      type: diagram
+      preset: swell
+      left: "Husk"
+      right: "water"
+      result: "gel"
+      kicker: "HUSK + WATER"
+      note: "thin husk soaks it up"
+      sub: "the fibre in your supplement"
+    footage:
+      - {src: src/7745.mp4, in: 0.2, weight: 1}
+      - src: photos/112A7808.jpg
+        weight: 1.1
+        focus: [520, 800]
+        pan: [0, -40]
+        annotate:
+          - {type: circle, at: [460, 625], r: [210, 100], when: 0.1}
+          - {type: label, text: "grader", xy: [800, 1080], arrow: [[800, 1010], circle], when: 0.3}
+
+  - id: exports
+    say: "Today, psyllium husk is [[n]]more than [[half]]half of all India's herbal exports."
+    beat:
+      type: big_stat
+      value: 55
+      format: "{v}%"
+      label: "of India's AYUSH & herbal exports | ₹2,917 crore in 2025–26"
+      kicker: "INDIA'S HERBAL EXPORTS"
+      note: "more than half!"
+      note_cue: half
+      chart: donut
+    stat: {source: "The Financial World, Jun 2026"}
+    footage:
+      - {src: photos/112A7826.jpg, weight: 1, focus: [760, 533], pan: [-60, 0]}
+      - {src: src/7816.mp4, in: 11.0, weight: 1}
+
+  - id: close
+    say: "We mill it right at the source, in [[place]]Sidhpur, Gujarat. [[end]]If you're sourcing psyllium for your brand, we'd be happy to send you a sample."
+    beat:
+      type: footage
+      headline: "Milled right at the *source*."
+      kicker: "MILLED AT THE SOURCE"
+      location: {name: Sidhpur, title: "Sidhpur", label: "Sidhpur, Gujarat", region: "Gujarat, India", state: Gujarat, lon: 72.37, lat: 23.92, cue: place}
+      photos: [photos/112A7754.jpg, photos/112A7806.jpg]
+    footage:
+      - {src: src/3202.mp4, in: 6.0, weight: 1, focus: [820, 540]}
+      - {src: photos/112A7767.jpg, weight: 1.2, focus: [530, 800], pan: [0, 30]}
+      - {src: src/7816.mp4, in: 14.0, weight: 1.2}

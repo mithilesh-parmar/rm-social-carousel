@@ -1,0 +1,11 @@
+# Python 3.10+, plus ffmpeg/ffprobe on PATH.
+# Pillow must be built with libraqm (Devanagari/Arabic shaping): check with
+#   python3 -c "from PIL import features; print(features.check('raqm'))"
+# (pip wheels for Linux/macOS include it; on Debian/Ubuntu also `apt install libraqm0`).
+pillow>=10.1
+numpy>=1.24
+pyyaml>=6.0
+fonttools>=4.40
+edge-tts>=7.0
+# optional, only for --upload-drive with a service account:
+# google-auth>=2.20

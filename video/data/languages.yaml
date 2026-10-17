@@ -1,0 +1,20 @@
+# One entry per output language.
+#   voice: edge-tts neural voice (list them: python3 -m edge_tts --list-voices)
+#   rate:  edge-tts speaking-rate tweak ("+0%", "-5%", ...)
+#   name:  English name, given to the translator
+#   ui:    fixed on-screen strings that are not part of a script
+# Add a language = add a block here (and, for a new script/alphabet, make sure a
+# font in video/rmvideo/text.py STACKS covers it).
+languages:
+  en: {name: English, voice: en-US-AndrewMultilingualNeural, rate: "+0%", ui: {source: "Source"}}
+  hi: {name: Hindi, voice: hi-IN-MadhurNeural, rate: "+12%", ui: {source: "स्रोत"}}
+  ru: {name: Russian, voice: ru-RU-DmitryNeural, rate: "+0%", ui: {source: "Источник"}}
+  es: {name: Spanish (Spain), voice: es-ES-AlvaroNeural, rate: "+0%", ui: {source: "Fuente"}}
+  de: {name: German, voice: de-DE-ConradNeural, rate: "+0%", ui: {source: "Quelle"}}
+  ar: {name: Arabic (Modern Standard), voice: ar-SA-HamedNeural, rate: "+0%", rtl: true, ui: {source: "المصدر"}}
+  zh: {name: Simplified Chinese, voice: zh-CN-YunxiNeural, rate: "+0%", cjk: true, ui: {source: "来源"}}
+  fr: {name: French, voice: fr-FR-HenriNeural, rate: "+0%", ui: {source: "Source"}}
+  pt: {name: Portuguese (Brazil), voice: pt-BR-AntonioNeural, rate: "+0%", ui: {source: "Fonte"}}
+  ja: {name: Japanese, voice: ja-JP-KeitaNeural, rate: "+0%", cjk: true, ui: {source: "出典"}}
+  id: {name: Indonesian, voice: id-ID-ArdiNeural, rate: "+0%", ui: {source: "Sumber"}}
+  tr: {name: Turkish, voice: tr-TR-AhmetNeural, rate: "+0%", ui: {source: "Kaynak"}}

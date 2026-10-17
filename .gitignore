@@ -14,3 +14,12 @@ logs/
 # Local machine settings
 .claude/settings.local.json
 .DS_Store
+
+# Video module: renders, work files, caches and media never go in git
+video/out/
+video/.work/
+video/.cache/
+video/assets/
+video/**/__pycache__/
+# 17 MB CJK font - fetched by `npm run video -- fonts`
+video/fonts/NotoSansSC*.ttf

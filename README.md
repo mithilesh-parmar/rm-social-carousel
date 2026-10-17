@@ -272,6 +272,37 @@ Pulled from the main repo's `docs/psyllium-nutraceutical-content-cluster.md` and
 `src/content/brandFacts.js`. If those source docs change, update here to match — the docs are
 authoritative if the two ever drift.
 
+## Short-form explainer videos (`video/`)
+
+A separate, Python-based module that turns one script file into a 9:16 explainer Reel per
+language (1080×1920, 30 fps, H.264, −14 LUFS) with burned-in karaoke captions, an `.srt`, a post
+caption and a QA contact sheet. Full docs: **[video/README.md](video/README.md)**.
+
+```
+pip install -r video/requirements.txt && npm run video -- fonts
+export RMVIDEO_ASSETS=/path/to/footage-and-photos      # media is never committed
+npm run video -- build video/scripts/*.yaml --langs en,hi,ru [--style en=process,hi=flat]
+npm run video -- check video/scripts/*.yaml --langs hi  # content rules + glossary only
+```
+
+* **Script** (`video/scripts/<slug>.yaml`): scenes with narration (`say`, `[[cue]]` markers),
+  a beat template (hook, title, big_stat, world_map_arcs, region_map, checklist, ratio, diagram,
+  footage), sources, footage refs; endcard + post caption.
+* **translate** → Claude via this repo's provider plumbing (`js/translate.mjs` reuses
+  `src/content/models.js` + `generateValidated`), cached and committed per language in
+  `video/scripts/translations/`, glossary-checked (RM Psyllium, rmpsyllium.com, psyllium).
+* **Content rules** (`video/data/rules.yaml`) block a language on health-cure claims, FSSC 22000,
+  "40 years" or MOQ — in English and in every translation.
+* **tts** → edge-tts neural voice per language (`video/data/languages.yaml`), word timings
+  auto-time every scene and cue; pronunciation lexicon (`Sidhpur` is spoken "Sidpoor").
+* **Brand sign-off, on by default**: every video ends, after a 0.4 s pause, with the spoken
+  "RM Psyllium. Straight from the source." (tagline translated, name always "R M Psyllium"),
+  the logo animating in on the name, plus the CTA "Sourcing psyllium? Ask us for a sample." and
+  rmpsyllium.com (`video/data/brand.yaml`).
+* **render** → two styles: `process` (annotated real factory footage) and `flat` (flat vector
+  kinetic), resumable chunked ffmpeg encode; Devanagari, Cyrillic, Arabic (RTL) and CJK captions.
+* Optional `--upload-drive` (token/service account from env only). Nothing is ever posted.
+
 ## Known v1 limits (intentional, not oversights)
 
 - **No direct publishing.** Meta Graph API / LinkedIn API integration is a deliberately separate
